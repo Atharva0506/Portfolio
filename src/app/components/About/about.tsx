@@ -26,7 +26,7 @@ const about = () => {
           <a href="#Contact" className="btn btn-primary">
             Lets Talk
           </a>
-          <a href={""} download className='btn' >Download CV</a>
+          <a href="/Atharva Naik CV.pdf" download="Atharva_Naik_CV.pdf" className='btn' >Download CV</a>
         </div>
       </div>
     </section>

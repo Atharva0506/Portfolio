@@ -1,0 +1,157 @@
+.hero__container {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 35% 50%;
+    gap: 15%;
+  }
+  
+  .hero_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+    animation: slideInFromLeft 1s ease-out;
+  }
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  
+  .hero_info h2 span{
+    font-size: 2rem;
+  }
+  .hero_info h1 span{
+    color: var(--color-white);
+  }
+  .hero_info h1 {
+    color: #cd5ff8;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero__me {
+    width: 100%;
+    display: grid;
+    height: 100%;
+    place-items: center;
+    animation: slideInFromRight 1s ease-in;
+    
+  }
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+
+  .wave {
+    animation-name: wave-animation; 
+    animation-duration: 2.1s; 
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%; 
+    display: inline-block;
+  }
+  
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    } 
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+.hero_info h1{
+    position: relative;
+}
+  .hybrid{
+  margin:0;
+  position: absolute;
+  width: auto;
+  float: left;
+  }
+    
+  .hybrid span{
+  color: #1100f1;
+}  
+
+.hybrid span::after
+  {
+  align-self: center;
+  content: '|';
+  transition: .05s;
+  animation: blink 1.5s infinite;
+  }
+
+@keyframes blink{
+  0%,50%,100%{
+    opacity:1;
+}
+  25%,75%{ 
+    opacity:0;
+}
+}
+
+
+
+
+
+/* ================== media tab Devacie ================= */
+@media only screen and (max-width: 1024px) {
+  .hero__container {
+      grid-template-columns: 1fr;
+      gap: 0;
+  }
+
+  .hero_info {
+      width: 75%;
+      margin: 2rem auto 4rem;
+  }
+  .hero_info h1{
+    font-size: 1.6rem;
+  }
+}
+
+/* ================== media phone Small Devacie ================= */
+
+@media only screen and (max-width: 600px) {
+  .hero__me {
+      width: 100%;
+      margin: 0 auto 3rem;
+  }
+
+  .hero__info {
+      text-align: center;
+  }
+
+}

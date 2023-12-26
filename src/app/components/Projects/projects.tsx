@@ -8,14 +8,14 @@ const proje = [
   {
     id: 1,
     img: kanban,
-    title: 'Kanban Board Task Management 1',
-    github: 'https://github.com/Atharva0506/Kanban-Board-Task-Management',
-    livedemo: 'https://kanban-board-task-management-beta.vercel.app/',
+    title: 'Trackify',
+    github: 'https://github.com/Atharva0506/Trackify',
+    livedemo: 'https://trackify-atharva0506.vercel.app/',
   },
   {
     id: 2,
     img: quiz,
-    title: 'AutoQuiz- AI based Quiz Generator 1',
+    title: 'AutoQuiz- AI based Quiz Generator',
     github: 'https://github.com/Atharva0506/AutoQuiz',
     livedemo: 'https://github.com/Atharva0506/AutoQuiz',
   },

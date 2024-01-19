@@ -3,8 +3,16 @@ import './projects.css';
 import Summarizer from '../../../../public/images/Summarizer.png';
 import kanban from '../../../../public/images/Kanban.jpg';
 import quiz from '../../../../public/images/quiz.jpg';
+import blog from '../../../../public/images/blog.png'
 import Image from 'next/image';
 const proje = [
+  {
+    id: 4,
+    img: blog,
+    title: 'blog',
+    github: 'https://github.com/Atharva0506/Blog-Platform',
+    livedemo: 'https://blog-web-five-virid.vercel.app/',
+  },
   {
     id: 1,
     img: kanban,

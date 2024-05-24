@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import img from "../../../../public/images/home-main.svg";
 import "./hero.css";
@@ -11,7 +11,7 @@ function Hero() {
 
   
 
-  const words = ["Web Developer", "Software Developer|", "Data Scientist"];
+  const words = useMemo(() => ["Web Developer", "Software Developer", "Data Scientist"], []);
   useEffect(() => {
     const typeDelay = 200;
     const deleteDelay = 50;

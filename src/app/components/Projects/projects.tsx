@@ -4,8 +4,16 @@ import Summarizer from '../../../../public/images/Summarizer.png';
 import kanban from '../../../../public/images/Kanban.jpg';
 import quiz from '../../../../public/images/quiz.jpg';
 import blog from '../../../../public/images/blog.png'
+import Nakama from '../../../../public/images/Nakama.jpg'
 import Image from 'next/image';
 const proje = [
+  {
+    id: 5,
+    img: Nakama,
+    title: 'Nakama AI: Your Personalized AI Companion',
+    github: 'https://github.com/Atharva0506/Nakama',
+    livedemo: 'https://nakama-taupe.vercel.app/',
+  },
   {
     id: 4,
     img: blog,

@@ -1,4 +1,3 @@
-
 .about__container {
     display: grid;
     grid-template-columns: 35% 50%;
@@ -10,6 +9,8 @@
     border-radius: 2rem;
     display: grid;
     place-items: center;
+    perspective: 1000px;
+    transition: transform 0.1s ease-out; 
 }
 
 .about__me img {
@@ -17,20 +18,25 @@
     height: 100%;
     border-radius: 2rem;
     overflow: hidden;
+    backface-visibility: hidden; 
+}
+
+.about__me img:hover {
+    transform: rotateY(15deg) rotateX(15deg) scale(1.05); /* 3D effect */
 }
 
 .about__content p {
     margin: 2rem 0 2.6rem;
     color: var(--color-light);
 }
-.about__content span{
+
+.about__content span {
     color: #cd5ff8;
 }
 
-.about__content  a{
-    margin: .5rem;
+.about__content a {
+    margin: 0.5rem;
 }
-
 
 /* Media tablet */
 @media only screen and (max-width: 1024px) {
@@ -47,7 +53,8 @@
     .about__content p {
         margin: 1rem 0 1.5rem;
     }
-    .about__content  a{
+
+    .about__content a {
         margin: 0.2rem;
     }
 }
@@ -66,7 +73,8 @@
     .about__content p {
         margin: 1.5rem 0;
     }
-    .about__content  a{
+
+    .about__content a {
         margin: 0.2rem;
     }
 }

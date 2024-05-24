@@ -1,9 +1,9 @@
 import React from 'react';
 import './skill.css';
-import { FaHtml5,FaCss3Alt ,FaNode,FaReact    } from "react-icons/fa";
+import { FaHtml5,FaCss3Alt ,FaNode,FaReact,FaDocker ,FaAws  ,FaGithub    } from "react-icons/fa";
 import { BiLogoTypescript,BiLogoJavascript,BiLogoTailwindCss  } from "react-icons/bi";
-import { SiMysql ,SiMongodb } from "react-icons/si";
-import { DiTerminal,DiPython  } from "react-icons/di";
+import { SiMysql ,SiMongodb,SiNextdotjs  } from "react-icons/si";
+import { DiTerminal,DiPython,DiPostgresql   } from "react-icons/di";
 function Skills() {
   const webDevSkills = [
     { name: 'HTML', level: 'skilled', icon: <FaHtml5 /> },
@@ -12,14 +12,19 @@ function Skills() {
     { name: 'TypeScript', level: 'skilled', icon: <BiLogoTypescript /> },
     { name: 'Tailwind css', level: 'skilled', icon: <BiLogoTailwindCss  /> },
     { name: 'React', level: 'skilled', icon: <FaReact /> },
+    { name: 'Next JS', level: 'skilled', icon: <SiNextdotjs /> },
   ];
 
   const backendSkills = [
     { name: 'MySql', level: 'skilled', icon: <SiMysql /> }, 
     { name: 'Mongodb', level: 'skilled', icon: <SiMongodb  /> },
+    { name: 'PostgreSQL', level: 'skilled', icon: <DiPostgresql  /> },
     { name: 'C/C++', level: 'skilled', icon: <DiTerminal /> },
-    { name: 'Python', level: 'skilled', icon: <DiPython  /> },
     { name: 'NodeJS', level: 'skilled', icon: <FaNode  /> },
+    { name: 'Python', level: 'skilled', icon: <DiPython  /> },
+    { name: 'Git/Github', level: 'skilled', icon: <FaGithub  /> },
+    { name: 'Docker', level: 'skilled', icon: <FaDocker  /> },
+    { name: 'Aws', level: 'skilled', icon: <FaAws  /> },
   ];
 
   const renderSkills = (skills:any) => {

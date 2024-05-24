@@ -10,6 +10,8 @@
     border-radius: 2rem;
     border: 1px solid transparent;
     transition: var(--transition);
+    
+    overflow: hidden;
 
 }
 .projects_item:hover{
@@ -18,6 +20,8 @@
 }
 
 .projects_img img{
+    height: 200px;
+    object-fit: cover;
     border-radius: 1.5rem;
 }
 .projects_item > h3 {

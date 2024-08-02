@@ -23,7 +23,7 @@ export async function POST(request: NextRequest){
     return response;
 
     } catch (error:any) {
-        return NextResponse.json({error:error.message},
+        return NextResponse.json({error:"You can only send one message per email."},
             {status:500});
     }
 }

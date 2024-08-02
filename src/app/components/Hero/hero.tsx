@@ -56,7 +56,7 @@ function Hero() {
             Hi There! <span className="wave">👋🏻</span>
           </h2>
           <h1>
-            <span>I{"'"}M</span> AHARVA NAIK
+            <span>I{"'"}M</span> ATHARVA NAIK
           </h1>
           <h1 className="hybrid">
             <span>{words[textIndex].substring(0, charIndex)}</span>

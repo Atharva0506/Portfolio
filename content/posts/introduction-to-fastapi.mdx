@@ -1,0 +1,27 @@
+---
+title: Introduction to FastAPI
+summary: FastAPI is a modern Python framework for building high-performance APIs quickly and efficiently. This post introduces the basics of FastAPI.
+image: /images/posts/introduction-to-fastapi.jpg
+author: 'Atharva Naik'
+publishedAt: '2026-01-17'
+---
+
+FastAPI is a modern Python web framework designed for building fast, scalable,
+and production-ready APIs. This post will introduce you to the basics of FastAPI
+and explain why it is a great choice for backend development.
+
+## What is FastAPI?
+
+FastAPI is a Python framework built on top of **Starlette** and **Pydantic** that
+allows developers to create APIs with minimal code and maximum performance.
+It supports asynchronous programming by default and provides automatic
+validation for request and response data.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI!"}

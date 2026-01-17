@@ -1,0 +1,41 @@
+---
+title: Building Real-World AI Applications as a Software Developer
+summary: My journey as a software developer working with Generative AI, backend systems, and scalable APIs using Python, FastAPI, and LLMs.
+image: /images/posts/ai-software-developer.jpg
+author: 'Atharva Naik'
+publishedAt: '2026-01-17'
+---
+
+I’m Atharva Naik, a Software Developer focused on building real-world applications
+powered by Generative AI and scalable backend systems. This post shares my journey,
+technical experience, and the tools I use to solve practical problems.
+
+## My Background
+
+I am currently pursuing a **Master of Computer Applications (MCA)** at Savitribai
+Phule Pune University. During my academic journey, I developed a strong interest
+in backend engineering and AI-driven systems, which led me to work extensively
+with Python, FastAPI, and Large Language Models (LLMs).
+
+## Working with Generative AI
+
+A major part of my work revolves around **LLM-powered applications**. I have built
+and shipped tools using technologies like:
+
+- OpenAI APIs (GPT-4)
+- Llama-2
+- LangChain
+- Retrieval-Augmented Generation (RAG)
+- Vector databases such as ChromaDB
+
+These systems helped improve developer productivity and reduced hallucinations
+in AI responses through better context retrieval.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/health")
+def health_check():
+    return {"status": "AI service running"}

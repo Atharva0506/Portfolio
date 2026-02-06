@@ -1,4 +1,5 @@
 import Intro from '@/components/intro'
+import Skills from '@/components/skills'
 import RecentPosts from '@/components/recent-posts'
 import RecentProjects from '@/components/recent-projects'
 
@@ -8,6 +9,7 @@ export default function Home() {
       <div className='container max-w-3xl'>
         <Intro />
 
+        <Skills />
         <RecentPosts />
         <RecentProjects />
 

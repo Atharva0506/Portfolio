@@ -1,8 +1,8 @@
 import Projects from '@/components/projects'
-import { getProjects } from '@/lib/projects'
+import { projects } from '@/lib/data'
 
-export default async function ProjectsPage() {
-  const projects = await getProjects()
+export default function ProjectsPage() {
+
 
   return (
     <section className='pb-24 pt-40'>

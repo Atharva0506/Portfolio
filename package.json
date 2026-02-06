@@ -15,6 +15,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^0.563.0",
     "next": "14.2.5",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
@@ -32,16 +33,23 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.14",
+    "@types/js-yaml": "3.12.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "js-yaml": "3.14.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
   "engines": {
     "node": "24.x"
+  },
+  "pnpm": {
+    "overrides": {
+      "js-yaml": "3.14.1"
+    }
   }
 }

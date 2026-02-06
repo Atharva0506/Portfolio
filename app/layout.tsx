@@ -7,6 +7,8 @@ import './globals.css'
 import Providers from '@/components/providers'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import { UbuntuPortfolioIntroduction } from '@/components/UbuntuPortfolioIntroduction'
+
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const playfair = Playfair_Display({
@@ -42,6 +44,7 @@ export default function RootLayout({
           <Header />
           <main className='grow'>{children}</main>
           <Footer />
+          <UbuntuPortfolioIntroduction />
         </Providers>
       </body>
     </html>

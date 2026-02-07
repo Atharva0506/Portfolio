@@ -1,0 +1,152 @@
+---
+title: "Building AI Agents with Vercel AI SDK and SWR"
+description: "How I built AI agents using Vercel AI SDK, implemented streaming chat, and used SWR for efficient data fetching."
+date: "2026-02-07"
+tags: ["AI", "AI Agents", "Vercel AI SDK", "Next.js", "SWR", "Chatbot"]
+---
+
+Artificial Intelligence is changing how users interact with applications. In this post, I’ll walk through how I built AI agents using the **Vercel AI SDK**, how it’s implemented in my **AI-Bot** project, and how I used **SWR** for efficient client-side data fetching alongside AI workflows.
+
+---
+
+## 🧠 What Is Vercel AI SDK?
+
+The **Vercel AI SDK** is a TypeScript-first toolkit that makes it easy to build AI-powered features like chatbots, assistants, and agents using modern frameworks such as **Next.js**.
+
+It provides:
+- Unified API across multiple LLM providers
+- Streaming responses for real-time UX
+- React hooks like `useChat`
+- Server-side helpers for edge and serverless environments
+
+This abstraction allows fast iteration without being locked to a single AI provider.
+
+---
+
+## 🤖 AI-Bot Project Overview
+
+I implemented the Vercel AI SDK in my project **AI-Bot**, a conversational AI application built with modern web tooling.
+
+🔗 Repository:  
+https://github.com/Atharva0506/AI-Bot
+
+### Tech Stack Used
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Vercel AI SDK
+- Serverless API Routes
+
+### Key Features
+- Interactive chat UI
+- Streaming AI responses
+- Clean separation between UI and AI logic
+- Easily extensible to multi-agent workflows
+
+---
+
+## 🛠️ Using Vercel AI SDK in Practice
+
+### 1️⃣ Client-side Chat with `useChat`
+
+On the frontend, I used the `useChat` hook provided by the SDK to handle message state, inputs, and submissions.
+
+```ts
+import { useChat } from "ai/react";
+
+const { messages, input, handleInputChange, handleSubmit } = useChat({
+  api: "/api/chat",
+});
+
+This hook automatically manages:
+
+- Message history
+- Input state
+- Sending requests to the backend API
+
+---
+
+## 2️⃣ Server-side Streaming with `streamText`
+
+On the server, I created an API route that sends messages to the LLM and streams the response back to the client.
+
+```ts
+import { streamText } from "ai";
+import { openai } from "@ai-sdk/openai";
+
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  const result = await streamText({
+    model: openai("gpt-4.1"),
+    messages,
+  });
+
+  return result.toDataStreamResponse();
+}
+```
+
+Streaming responses significantly improve user experience by showing partial answers in real time rather than waiting for a full completion.
+
+## ⚡ How I Used SWR Alongside AI
+While the AI SDK handles conversational data, I used SWR for non-AI client-side data fetching such as:
+User metadata
+Chat statistics
+Configuration or usage data
+SWR provides:
+Caching
+Automatic revalidation
+Optimistic UI updates
+Focus revalidation
+Example SWR Usage
+Copy code
+```
+Ts
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then(res => res.json());
+
+function ChatStats() {
+  const { data, error } = useSWR("/api/stats", fetcher);
+
+  if (error) return <p>Error loading stats</p>;
+  if (!data) return <p>Loading...</p>;
+
+  return <p>Total Messages: {data.total}</p>;
+}
+```
+By separating AI streaming logic and regular data fetching, the app stays responsive and scalable.
+
+## 🧩 AI Agents Architecture
+The architecture follows a simple but scalable pattern:
+UI → useChat
+API Route → Vercel AI SDK
+Model → LLM Provider
+Streaming → Client
+Metadata → SWR
+This makes it easy to evolve from a single chatbot into multi-agent systems, tool calling, or RAG-based workflows.
+
+## 💡 Learnings & Best Practices
+Streaming is critical for good AI UX
+Keep AI logic server-side for security
+Use SWR only for non-AI data
+Vercel AI SDK makes provider switching painless
+Modular APIs help scale toward agent-based systems
+
+## 🚀 Deployment
+The application is deployed on Vercel, leveraging:
+Serverless functions
+Edge streaming
+Automatic CI/CD
+This setup ensures fast global performance and easy scalability.
+
+
+## 🏁 Conclusion
+Using Vercel AI SDK, I was able to build AI agents quickly with clean abstractions, real-time streaming, and a modern developer experience.
+Combining it with SWR allowed me to keep data fetching efficient without blocking AI interactions.
+This setup is ideal for building production-ready AI applications with minimal overhead
+
+
+## 🔗 References
+Vercel AI SDK: https://github.com/vercel/ai�
+AI-Bot Repository: https://github.com/Atharva0506/AI-Bot

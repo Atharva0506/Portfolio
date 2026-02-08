@@ -3,7 +3,7 @@ import { getPosts } from '@/lib/posts'
 import Posts from '@/components/posts'
 
 export default async function RecentPosts() {
-  const posts = await getPosts(4)
+  const posts = await getPosts(2)
 
   return (
     <section className='pb-24'>
@@ -15,7 +15,7 @@ export default async function RecentPosts() {
           href='/posts'
           className='mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground'
         >
-          <span>All posts</span>
+          <span>View all posts &rarr;</span>
         </Link>
       </div>
     </section>

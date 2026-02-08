@@ -10,7 +10,7 @@ export default function Projects({
   projects: Project[]
 }) {
   return (
-    <ul className='grid grid-cols-1 gap-8'>
+    <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
       {projects.map(project => (
         <li key={project.id} className='group relative flex flex-col gap-y-4 rounded-xl border border-zinc-200 bg-white p-4 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950/50 dark:hover:border-zinc-700 sm:p-6'>
           {/* Project Image */}

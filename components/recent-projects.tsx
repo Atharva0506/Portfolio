@@ -7,13 +7,14 @@ export default function RecentProjects() {
     <section className='pb-24'>
       <div>
         <h2 className='title mb-12'>Featured Projects</h2>
-        <Projects projects={projects} />
+        <Projects projects={projects.slice(0, 2)} />
 
-        {/* Removed "All projects" link for now as we are showing all key projects here, 
-            or we can point it to a dedicated page if implemented later. 
-            Keeping it commented out or removed based on user request scope. 
-            For now, showing all 4 projects here is cleaner. 
-        */}
+        <Link
+          href='/projects'
+          className='mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground'
+        >
+          <span>View all projects &rarr;</span>
+        </Link>
       </div>
     </section>
   )

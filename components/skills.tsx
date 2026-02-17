@@ -12,7 +12,7 @@ export default function Skills() {
                             {items.map((skill) => (
                                 <span
                                     key={skill}
-                                    className='rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200'
+                                    className='rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-800 transition-all duration-300 hover:bg-zinc-200 hover:scale-105 hover:shadow-sm dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700'
                                 >
                                     {skill}
                                 </span>

@@ -1,16 +1,71 @@
+import { Metadata } from 'next'
 import { getPosts } from '@/lib/posts'
 import PostsWithSearch from '@/components/posts-with-search'
+import PageTransition from '@/components/page-transition'
+import Breadcrumbs from '@/components/breadcrumbs'
+
+const baseUrl = 'https://atharva-naik-portfolio.vercel.app'
+
+export const metadata: Metadata = {
+  title: 'Blog Posts',
+  description: 'Read articles about AI development, FastAPI, LangChain, Next.js, and software engineering best practices by Atharva Naik.',
+  keywords: [
+    'AI development blog',
+    'FastAPI tutorials',
+    'LangChain guides',
+    'Next.js best practices',
+    'software engineering articles',
+    'Python backend development',
+    'LLM application tutorials'
+  ],
+  openGraph: {
+    title: 'Blog Posts | Atharva Naik',
+    description: 'Read articles about AI development, FastAPI, LangChain, Next.js, and software engineering best practices.',
+    type: 'website',
+    url: `${baseUrl}/posts`,
+  },
+  alternates: {
+    canonical: `${baseUrl}/posts`,
+  },
+}
 
 export default async function PostsPage() {
   const posts = await getPosts()
 
-  return (
-    <section className='pb-24 pt-40'>
-      <div className='container max-w-3xl'>
-        <h1 className='title mb-12'>Posts</h1>
+  // CollectionPage schema for blog listing
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Blog Posts',
+    description: 'Articles about AI development, FastAPI, LangChain, and software engineering.',
+    url: `${baseUrl}/posts`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${baseUrl}/posts/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  }
 
-        <PostsWithSearch posts={posts} />
-      </div>
-    </section>
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PageTransition>
+        <section className='pb-24 pt-40'>
+          <div className='container max-w-3xl'>
+            <Breadcrumbs items={[{ label: 'Posts', href: '/posts' }]} />
+            <h1 className='title mb-12'>Posts</h1>
+
+            <PostsWithSearch posts={posts} />
+          </div>
+        </section>
+      </PageTransition>
+    </>
   )
 }

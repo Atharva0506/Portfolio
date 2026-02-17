@@ -17,7 +17,7 @@ export default function Intro() {
           <a
             href='/Atharva_Naik.pdf'
             download
-            className='inline-flex items-center justify-center rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white shadow-md transition-colors hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200 dark:focus:ring-zinc-100 dark:focus:ring-offset-black'
+            className='inline-flex items-center justify-center rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-zinc-800 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200 dark:focus:ring-zinc-100 dark:focus:ring-offset-black'
           >
             Download Resume
           </a>
@@ -30,9 +30,9 @@ export default function Intro() {
           <BootUbuntuButton />
         </div>
       </div>
-      <div className='relative'>
+      <div className='relative group'>
         <Image
-          className='flex-1 rounded-lg grayscale'
+          className='flex-1 rounded-lg grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105'
           src={authorImage}
           alt='Atharva Naik'
           width={175}

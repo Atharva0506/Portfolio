@@ -16,6 +16,17 @@ export type ProjectMetadata = {
   author?: string
   publishedAt?: string
   slug: string
+  keywords?: string[]
+  techStack?: string[]
+  relatedProjects?: string[]
+  readingTime?: number
+}
+
+// Calculate reading time based on word count (avg 200 words per minute)
+function calculateReadingTime(content: string): number {
+  const wordsPerMinute = 200
+  const words = content.trim().split(/\s+/).length
+  return Math.ceil(words / wordsPerMinute)
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
@@ -23,7 +34,11 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const filePath = path.join(rootDirectory, `${slug}.mdx`)
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
     const { data, content } = matter(fileContent)
-    return { metadata: { ...data, slug }, content }
+    const readingTime = calculateReadingTime(content)
+    return { 
+      metadata: { ...data, slug, readingTime }, 
+      content 
+    }
   } catch (error) {
     return null
   }
@@ -53,6 +68,7 @@ export function getProjectMetadata(filepath: string): ProjectMetadata {
   const slug = filepath.replace(/\.mdx$/, '')
   const filePath = path.join(rootDirectory, filepath)
   const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-  const { data } = matter(fileContent)
-  return { ...data, slug }
+  const { data, content } = matter(fileContent)
+  const readingTime = calculateReadingTime(content)
+  return { ...data, slug, readingTime }
 }

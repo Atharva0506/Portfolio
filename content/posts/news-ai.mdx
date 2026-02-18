@@ -1,0 +1,157 @@
+---
+title: "Building an Autonomous AI News Aggregator with LangGraph, FastAPI, and Solana"
+summary: "A deep technical dive into how we architected a multi-agent news analysis platform. Learn how we orchestrate autonomous experts with LangGraph, stream real-time insights via SSE, and handle crypto subscriptions with Solana."
+tags: ["System Design", "LangGraph", "FastAPI", "Solana", "AI Agents"]
+keywords:
+  - Agentic AI Architecture
+  - LangGraph Python Tutorial
+  - FastAPI Server Sent Events
+  - Solana Payment Integration
+  - RAG System Design
+image: /images/posts/news-ai-architecture.jpg
+author: 'Atharva Naik'
+publishedAt: '2026-02-18'
+relatedPosts:
+  - ai-agents-vercel-ai-sdk
+  - introduction-to-fastapi
+  - real-world-ai-application
+---
+
+In the age of information overload, standard news aggregation isn't enough. We set out to build **NewsAI**, a platform that doesn't just collect headlines but actively *reads, analyzes, and contextualizes* them for the user.
+
+This post tears down the architecture of our production system, detailing how we combined **LangGraph** for orchestration, **FastAPI** for high-performance delivery, and **Solana** for seamless web3 subscriptions.
+
+## 🚀 Live Demo & Repository
+
+- **Live Application**: [https://news-app-delta-mocha-27.vercel.app/](https://news-app-delta-mocha-27.vercel.app/)
+- **GitHub Repository**: [https://github.com/Atharva0506/news-app](https://github.com/Atharva0506/news-app)
+
+---
+
+## 1. The Core AI Pipeline: Orchestrating Agents with LangGraph
+
+At the heart of our backend lies a Directed Acyclic Graph (DAG) managed by **LangGraph**. We moved away from monolithic LLM calls to a **multi-agent system** where specialized "nodes" handle distinct cognitive tasks.
+
+### The Agent Workflow
+
+The pipeline is defined in `backend/app/services/ai_agents/graph.py`. Data flows through a shared state object (`AgentState`), allowing agents to build upon each other's work.
+
+1.  **The Collector (Gatekeeper)**:
+    *   **Role**: Acts as the first line of defense. It analyzes raw content and assigns a `quality_score`.
+    *   **Logic**: A conditional edge checks this score. If `quality_score < 0.3`, the pipeline terminates immediately via `END`, saving compute costs on low-value clickbait.
+
+2.  **The Classifier (Taxonomist)**:
+    *   **Role**: Maps content to our internal ontology.
+    *   **Output**: Determines the Category (e.g., *DeFi*, *Geopolitics*), Sentiment (*Bullish*, *Bearish*), and extraction of SEO headers.
+
+3.  **The Summarizer (Synthesizer)**:
+    *   **Role**: Distills information into two formats concurrently:
+        *   `summary_short`: A punchy 2-sentence hook for the news feed card.
+        *   `summary_detail`: A comprehensive executive briefing for the deep-dive view.
+
+4.  **The Bias Analyzer (The Critic)**:
+    *   **Role**: *Premium Feature*. It scans for political inclination or sensationalism.
+    *   **Implementation**: This node is conditional; it only executes if `state["is_premium"]` is true, adding value specifically for Pro users.
+
+### State Management
+
+We use a Python `TypedDict` to ensure type safety across the graph:
+
+```python
+from typing import TypedDict, Optional
+
+class AgentState(TypedDict):
+    article_id: str
+    content: str
+    quality_score: float
+    # ... populated by downstream agents
+    sentiment: Optional[str]
+    bias_score: Optional[float]
+```
+
+## 2. Robust External Integrations
+
+Reliability is key when dealing with third-party APIs. We implemented aggressive fallback strategies to ensure 99.9% uptime.
+
+### Reasoning: Gemini API with Smart Rotation
+
+We utilize Google's Gemini 1.5 Flash for its speed/cost ratio. To handle throughput limits, we built a custom rotation decorator:
+
+*   **Pool Management**: The system loads a list of keys from `GOOGLE_API_KEYS`.
+*   **Auto-Rotation**: If an agent encounters a `429 Resource Exhausted` error, it catches the exception, rotates to the next key in the pool, and retries the request transparently—without the user ever knowing.
+
+### Data: Currents API
+
+We decouple our data fetching implementation using the **Strategy Pattern** (`NewsProvider`).
+
+*   **Live Mode**: Fetches real-time global news via `Currents API`.
+*   **Test Mode**: In development, we minimize costs by serving mock JSON payloads that mimic the structure of live responses perfectly.
+
+### Subscriptions: Solana Blockchain
+
+We bypassed traditional gateways (Stripe) for a Web3-native approach using `solana-py` and `solders`.
+
+1.  **Verification Flow**: The backend listens for a transaction signature.
+2.  **RPC Validation**: We query the robust devnet (or mainnet) via an RPC client to verify that:
+    *   The transaction exists and is finalized.
+    *   The destination matches our `merchant_wallet`.
+    *   The amount exactly matches `PRO_PLAN_PRICE_SOL`.
+3.  **Atomic Upgrade**: Upon verification, the user's PostgreSQL record is instantly updated to `plan_type: "pro"`, unlocking the Bias Analyzer node.
+
+## 3. Backend Architecture: FastAPI & SSE
+
+We chose **FastAPI** for its native asynchronous support, which is critical when orchestrating high-latency AI operations.
+
+### Real-Time feedback with Server-Sent Events (SSE)
+
+Users hate staring at a spinning loader. We implemented Server-Sent Events to stream the "thought process" of our AI to the frontend.
+
+As LangGraph transitions between nodes, we yield JSON chunks to the client:
+
+```json
+// Stream Sequence
+{ "status": "progress", "agent": "collector", "message": "Filtering noise..." }
+{ "status": "progress", "agent": "classifier", "message": "Identifying sector..." }
+{ "status": "complete", "article": { ... } }
+```
+
+This granular feedback loop makes the application feel significantly faster and more responsive.
+
+## 4. Current Deployment & Infrastructure
+
+*   **Frontend**: Deployed on **Vercel** for edge caching and rapid CI/CD.
+*   **Backend**: Hosted on **Render**. We use a specialized startup script to handle database migrations (Alembic) automatically before the app starts serving traffic.
+*   **Database**: **PostgreSQL** (via Supabase/Render Managed PostgreSQL) handling relational data for Users, Payments, and cached Articles.
+
+### The "RAG" Implementation
+
+Currently, our "Ask AI" feature utilizes a **SQL-Keyword Search** approach (SQLAlchemy `ilike` filters). While effective for MVP, this searches for exact keyword matches within article titles and descriptions before feeding the context to the LLM.
+
+## 5. Future Roadmap: Moving to Production
+
+As we scale beyond the beta phase, we are looking at two distinct architectural paths to handle increased load:
+
+| Component | AWS "Scale-Out" Architecture | GCP "AI-Native" Architecture |
+| :--- | :--- | :--- |
+| **Compute** | AWS Fargate (Serverless Containers) | Google Cloud Run |
+| **Database** | Amazon Aurora Serverless | Cloud SQL |
+| **Caching** | Amazon ElastiCache (Redis) | Memorystore (Redis) |
+| **Vector Search** | Pinecone / pgvector | Vertex AI Vector Search |
+| **AI Hosting** | Bedrock Proxy | Vertex AI Endpoints |
+
+
+### Immediate Next Steps:
+
+1.  **Migrate to Vector DB**: Replace `ilike` queries with valid semantic search (`pgvector`) to improve answer quality.
+2.  **Redis Caching**: Cache common news summaries to reduce redundant LLM calls and costs.
+
+## 👥 Conclusion
+
+**NewsAI** demonstrates that building an "agentic" application is about more than just calling an API. It requires a thoughtful architecture that handles state, failures, and real-time user feedback. By combining the rigid structure of LangGraph with the performance of FastAPI, we've built a system that is both intelligent and scalable.
+
+## 🔗 References
+
+*   [LangGraph Documentation](https://docs.langchain.com/oss/python/langgraph/overview)
+*   [FastAPI Async User Guide](https://fastapi.tiangolo.com/async/)
+*   [Solana.py GitHub Repository](https://github.com/michaelhly/solana-py)
+*   [Google Gemini API Pricing & Limits](https://ai.google.dev/gemini-api/docs/pricing)

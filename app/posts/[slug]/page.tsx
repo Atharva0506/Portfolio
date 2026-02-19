@@ -21,13 +21,13 @@ export async function generateStaticParams() {
   return slugs
 }
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: { slug: string } 
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string }
 }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug)
-  
+
   if (!post) {
     return {
       title: 'Post Not Found'
@@ -82,7 +82,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   // Get related posts data
   const allPosts = await getPosts()
-  const relatedPostsData = relatedPosts 
+  const relatedPostsData = relatedPosts
     ? allPosts.filter(p => relatedPosts.includes(p.slug))
     : allPosts.filter(p => p.slug !== slug).slice(0, 2)
 
@@ -124,11 +124,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <PageTransition>
         <section className='pb-24 pt-32'>
           <div className='container max-w-3xl'>
-            <Breadcrumbs 
+            <Breadcrumbs
               items={[
                 { label: 'Posts', href: '/posts' },
-                { label: title || 'Post', href: `/posts/${slug}` }
-              ]} 
+                {
+                  label: title ? (title.length > 30 ? `${title.slice(0, 30)}...` : title) : 'Post',
+                  href: `/posts/${slug}`
+                }
+              ]}
             />
 
             <Link
@@ -140,7 +143,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
             </Link>
 
             {image && (
-              <div className='relative mb-6 h-96 w-full overflow-hidden rounded-lg'>
+              <div className='relative mb-6 h-48 w-full overflow-hidden rounded-lg sm:h-64 md:h-96'>
                 <Image
                   src={image}
                   alt={`${title} - Featured image for blog post about ${keywords?.[0] || 'software development'}`}

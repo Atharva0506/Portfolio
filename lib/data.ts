@@ -10,7 +10,7 @@ export type Project = {
 
 export const projects: Project[] = [
     {
-        id: 'news-ai-app',
+        id: 'news-app',
         name: 'News AI App',
         description: 'A next-generation AI news platform using multiple agents to aggregate, classify, summarize, and analyze news in real-time. Features a Deep Analysis pipeline (Collector → Classifier → Summarizer → Bias Analyzer) using LangGraph, streaming results via SSE. Includes a daily briefing system, RAG-based AI Chat Assistant, and premium subscriptions with Solana-based payments.',
         techStack: ['Next.js', 'FastAPI', 'LangGraph', 'GenAI', 'SSE', 'MongoDB', 'JWT', 'Solana'],

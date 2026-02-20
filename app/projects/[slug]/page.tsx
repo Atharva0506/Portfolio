@@ -21,13 +21,13 @@ export async function generateStaticParams() {
   return slugs
 }
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: { slug: string } 
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string }
 }): Promise<Metadata> {
   const project = await getProjectBySlug(params.slug)
-  
+
   if (!project) {
     return {
       title: 'Project Not Found'
@@ -84,7 +84,7 @@ export default async function Project({
 
   // Get related projects data
   const allProjects = await getProjects()
-  const relatedProjectsData = relatedProjects 
+  const relatedProjectsData = relatedProjects
     ? allProjects.filter(p => relatedProjects.includes(p.slug))
     : allProjects.filter(p => p.slug !== slug).slice(0, 2)
 
@@ -112,20 +112,35 @@ export default async function Project({
     },
   }
 
+  // JSON-LD structured data for Breadcrumbs
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+      { '@type': 'ListItem', position: 2, name: 'Projects', item: `${baseUrl}/projects` },
+      { '@type': 'ListItem', position: 3, name: title, item: `${baseUrl}/projects/${slug}` }
+    ]
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <PageTransition>
         <section className='pb-24 pt-32'>
           <div className='container max-w-3xl'>
-            <Breadcrumbs 
+            <Breadcrumbs
               items={[
                 { label: 'Projects', href: '/projects' },
                 { label: title || 'Project', href: `/projects/${slug}` }
-              ]} 
+              ]}
             />
 
             <Link

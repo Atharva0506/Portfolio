@@ -115,11 +115,26 @@ export default async function Post({ params }: { params: { slug: string } }) {
     timeRequired: readingTime ? `PT${readingTime}M` : undefined,
   }
 
+  // JSON-LD structured data for Breadcrumbs
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+      { '@type': 'ListItem', position: 2, name: 'Posts', item: `${baseUrl}/posts` },
+      { '@type': 'ListItem', position: 3, name: title, item: `${baseUrl}/posts/${slug}` }
+    ]
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <PageTransition>
         <section className='pb-24 pt-32'>

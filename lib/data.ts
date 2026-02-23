@@ -64,11 +64,51 @@ export const projects: Project[] = [
     },
 ]
 
-export const skills = {
-    'Machine Learning & AI': ['PyTorch', 'TensorFlow', 'OpenCV', 'Scikit-learn', 'CNN', 'Model Training'],
-    'Generative AI & LLMs': ['LangChain', 'OpenAI API (GPT-4)', 'Llama-2', 'RAG', 'ChromaDB'],
-    'Languages': ['Python', 'JavaScript', 'TypeScript', 'SQL'],
-    'Frontend': ['React.js', 'Next.js', 'Tailwind CSS'],
-    'Backend & Tools': ['FastAPI', 'Node.js', 'Docker', 'Git/GitHub', 'AWS'],
-    'Databases': ['PostgreSQL', 'MongoDB', 'Vector Databases'],
+export type SkillItem = {
+    name: string
+    level: 'advanced' | 'intermediate' | 'beginner'
+}
+
+export type SkillCategory = {
+    items: SkillItem[]
+    highlight?: boolean
+}
+
+export const skills: Record<string, SkillCategory> = {
+    'AI & LLM Engineering': {
+        items: [
+            { name: 'LangChain / LangGraph', level: 'advanced' },
+            { name: 'RAG Systems', level: 'advanced' },
+            { name: 'OpenAI / Gemini APIs', level: 'advanced' },
+            { name: 'Vector DBs (ChromaDB, Pinecone)', level: 'intermediate' },
+            { name: 'LLaMA Fine-Tuning', level: 'intermediate' },
+        ],
+        highlight: true,
+    },
+    'Backend Development': {
+        items: [
+            { name: 'Python', level: 'advanced' },
+            { name: 'FastAPI', level: 'advanced' },
+            { name: 'Node.js / Express', level: 'intermediate' },
+            { name: 'REST API Design', level: 'advanced' },
+            { name: 'SSE / WebSockets', level: 'intermediate' },
+        ],
+    },
+    'Frontend Development': {
+        items: [
+            { name: 'Next.js (App Router)', level: 'advanced' },
+            { name: 'React.js', level: 'advanced' },
+            { name: 'TypeScript', level: 'intermediate' },
+            { name: 'Tailwind CSS', level: 'advanced' },
+        ],
+    },
+    'Infrastructure & DevOps': {
+        items: [
+            { name: 'Docker', level: 'intermediate' },
+            { name: 'AWS (EC2, S3)', level: 'beginner' },
+            { name: 'CI/CD (GitHub Actions)', level: 'intermediate' },
+            { name: 'PostgreSQL / MongoDB', level: 'intermediate' },
+            { name: 'Git & GitHub', level: 'advanced' },
+        ],
+    },
 }

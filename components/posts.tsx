@@ -11,7 +11,7 @@ export default function Posts({ posts }: { posts: PostMetadata[] }) {
         <li key={post.slug} className='group'>
           <Link
             href={`/posts/${post.slug}`}
-            className='flex flex-col justify-between gap-x-4 gap-y-1 rounded-lg p-4 -mx-4 transition-all duration-300 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 sm:flex-row'
+            className='flex flex-col justify-between gap-x-4 gap-y-1 rounded-lg border-l-2 border-transparent p-4 -mx-4 transition-all duration-300 hover:border-zinc-400 hover:bg-zinc-50 dark:hover:border-zinc-500 dark:hover:bg-zinc-900/50 sm:flex-row'
           >
             <div className='max-w-lg'>
               <p className='text-lg font-semibold transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-300'>{post.title}</p>

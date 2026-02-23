@@ -8,11 +8,11 @@ import FAQSection from '@/components/faq-section'
 const faqItems = [
   {
     question: 'What technologies do you specialize in?',
-    answer: 'I specialize in Python, FastAPI, LangChain, Next.js, and AI/ML technologies including OpenAI GPT-4, LLaMA, and vector databases like ChromaDB and Pinecone. I focus on building production-ready AI applications and scalable backend systems.'
+    answer: 'I specialize in Python, FastAPI, LangChain, Next.js, and LLM technologies including OpenAI GPT-4, Gemini, and vector databases like ChromaDB and Pinecone. I build production-ready AI applications with multi-agent architectures and scalable backend systems.'
   },
   {
     question: 'Do you work on freelance or consulting projects?',
-    answer: 'Yes, I am available for freelance and consulting work, particularly in AI development, backend architecture, and full-stack web applications. Feel free to reach out through the contact form to discuss your project requirements.'
+    answer: 'Yes, I am available for freelance and consulting work in AI development, backend architecture, and full-stack web applications. I have experience building multi-agent AI systems, RAG pipelines, and cloud-deployed APIs. Reach out through the contact form to discuss your project.'
   },
   {
     question: 'What types of AI projects have you built?',

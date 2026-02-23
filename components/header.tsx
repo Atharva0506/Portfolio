@@ -12,14 +12,23 @@ export default function Header() {
         </div>
 
         <ul className='flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10'>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/posts'>Posts</Link>
+          <li className='group transition-colors hover:text-foreground'>
+            <Link href='/posts' className='relative pb-1'>
+              Posts
+              <span className='absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300 group-hover:w-full' />
+            </Link>
           </li>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/projects'>Projects</Link>
+          <li className='group transition-colors hover:text-foreground'>
+            <Link href='/projects' className='relative pb-1'>
+              Projects
+              <span className='absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300 group-hover:w-full' />
+            </Link>
           </li>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/contact'>Contact</Link>
+          <li className='group transition-colors hover:text-foreground'>
+            <Link href='/contact' className='relative pb-1'>
+              Contact
+              <span className='absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300 group-hover:w-full' />
+            </Link>
           </li>
         </ul>
 

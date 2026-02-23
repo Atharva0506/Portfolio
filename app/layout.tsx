@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://atharva-naik-portfolio.vercel.app'),
 
   title: {
-    default: 'Atharva Naik | Software Developer & AI Engineer',
-    template: '%s | Atharva Naik',
+    default: 'Atharva Naik | AI Full Stack Developer – LangChain, FastAPI, Next.js',
+    template: '%s | Atharva Naik – AI Developer',
   },
 
   description:
-    'Atharva Naik is a Software Developer and AI Engineer building AI-powered applications, FastAPI backends, LLM systems using LangChain, OpenAI, and scalable architectures.',
+    'AI Full Stack Developer building production-ready LLM apps with LangChain, FastAPI, and Next.js. View projects, case studies, and AI engineering insights.',
 
   keywords: [
     'Atharva Naik',
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: 'https://atharva-naik-portfolio.vercel.app',
     siteName: 'Atharva Naik Portfolio',
-    title: 'Atharva Naik | AI Engineer & Software Developer',
+    title: 'Atharva Naik | AI Full Stack Developer',
     description:
-      'AI Engineer building intelligent systems, FastAPI backends, and production-ready AI applications.',
+      'AI Full Stack Developer building production-ready LLM apps, FastAPI backends, and multi-agent AI systems.',
     images: [
       {
         url: '/favicon.png',
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Atharva Naik | AI Engineer',
+    title: 'Atharva Naik | AI Full Stack Developer',
     description:
-      'AI Engineer building scalable AI systems and modern web applications.',
+      'AI Full Stack Developer building scalable LLM systems and modern web applications.',
     images: ['/favicon.png'],
   },
 
@@ -126,7 +126,7 @@ export default function RootLayout({
               name: "Atharva Naik",
               url: "https://atharva-naik-portfolio.vercel.app",
               image: "https://atharva-naik-portfolio.vercel.app/favicon.png",
-              jobTitle: "AI Engineer",
+              jobTitle: "AI Full Stack Developer",
               sameAs: [
                 "https://github.com/Atharva0506",
                 "https://www.linkedin.com/in/atharva0506"

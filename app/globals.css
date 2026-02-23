@@ -84,7 +84,7 @@
   }
 
   .title {
-    @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8;
+    @apply font-serif text-2xl font-bold tracking-tight sm:text-3xl;
   }
 
   .prose pre {

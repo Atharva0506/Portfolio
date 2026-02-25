@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 99%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -12,16 +12,16 @@
     --popover-foreground: 240 10% 3.9%;
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
+    --secondary: 240 5% 96%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 42%;
+    --accent: 240 5% 93%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 240 6% 85%;
+    --input: 240 6% 85%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -30,15 +30,15 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    --sh-identifier: #354150;
-    --sh-keyword: #f47067;
-    --sh-string: #00a99a;
-    --sh-class: #8d85ff;
-    --sh-property: #4e8fdf;
-    --sh-entity: #6eafad;
-    --sh-jsxliterals: #bf7db6;
-    --sh-sign: #8996a3;
-    --sh-comment: #a19595;
+    --sh-identifier: #24292f;
+    --sh-keyword: #cf222e;
+    --sh-string: #0a3069;
+    --sh-class: #8250df;
+    --sh-property: #0550ae;
+    --sh-entity: #116329;
+    --sh-jsxliterals: #953800;
+    --sh-sign: #57606a;
+    --sh-comment: #6e7781;
   }
 
   .dark {
@@ -87,21 +87,50 @@
     @apply font-serif text-2xl font-bold tracking-tight sm:text-3xl;
   }
 
+  /* Code blocks — light: warm gray with border, dark: accent bg */
   .prose pre {
-    @apply overflow-x-auto rounded-lg bg-accent px-5 py-4 text-sm;
+    @apply overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-4 text-sm shadow-sm;
+    @apply dark:border-transparent dark:bg-accent dark:shadow-none;
   }
 
   .prose code {
-    @apply rounded-lg px-1 py-0.5;
+    @apply rounded-md bg-zinc-100 px-1.5 py-0.5 text-zinc-800;
+    @apply dark:bg-transparent dark:text-inherit;
   }
 
   .prose pre code {
-    @apply p-0;
+    @apply bg-transparent p-0 text-inherit;
     line-height: 1.75;
   }
 
   .prose code span {
     @apply font-medium;
+  }
+
+  /* Tables — light: defined borders and stripe-able, dark: existing */
+  .prose table {
+    @apply border-zinc-300 dark:border-border;
+  }
+
+  /* Headings — light: slightly warmer with bottom accent */
+  .prose h2 {
+    @apply border-b border-zinc-200 pb-2 dark:border-zinc-800;
+  }
+
+  /* Blockquotes — refined light styling */
+  .prose blockquote {
+    @apply border-l-zinc-400 bg-zinc-50/50 px-4 py-1 dark:border-l-zinc-600 dark:bg-transparent;
+  }
+
+  /* Links — vibrant blue in light mode */
+  .prose a {
+    @apply text-blue-600 decoration-blue-300 underline-offset-2 hover:text-blue-700 hover:decoration-blue-500;
+    @apply dark:text-blue-400 dark:decoration-blue-700 dark:hover:text-blue-300 dark:hover:decoration-blue-500;
+  }
+
+  /* HR — visible in both themes */
+  .prose hr {
+    @apply border-zinc-300 dark:border-zinc-700;
   }
 
   /* Custom Scrollbar */

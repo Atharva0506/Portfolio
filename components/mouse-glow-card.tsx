@@ -39,7 +39,7 @@ export default function MouseGlowCard({ children, className, glowClassName }: Mo
                     glowClassName
                 )}
                 style={{
-                    background: `radial-gradient(400px circle at ${glowPosition.x}px ${glowPosition.y}px, rgba(120, 119, 198, 0.06), transparent 60%)`,
+                    background: `radial-gradient(400px circle at ${glowPosition.x}px ${glowPosition.y}px, rgba(59, 130, 246, 0.08), transparent 60%)`,
                 }}
             />
             {/* Dark mode glow - slightly brighter to be visible */}

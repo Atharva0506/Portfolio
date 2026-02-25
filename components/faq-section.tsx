@@ -43,7 +43,12 @@ export default function FAQSection({ items, title = 'Frequently Asked Questions'
           {items.map((item, index) => (
             <div
               key={index}
-              className="rounded-lg border border-zinc-200 dark:border-zinc-800"
+              className={cn(
+                "rounded-lg border transition-all duration-300",
+                openIndex === index
+                  ? "border-blue-200 bg-blue-50/30 shadow-sm dark:border-zinc-700 dark:bg-zinc-900/30"
+                  : "border-zinc-200 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-800 dark:hover:border-zinc-700"
+              )}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

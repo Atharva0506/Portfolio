@@ -152,8 +152,8 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
               key={tag}
               onClick={() => toggleTag(tag)}
               className={`rounded-full border px-3 py-1 text-xs font-medium transition-all duration-200 ${isActive
-                  ? 'border-primary bg-primary text-primary-foreground shadow-sm'
-                  : 'border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground'
+                  ? 'border-blue-500 bg-blue-500 text-white shadow-sm shadow-blue-200 dark:border-primary dark:bg-primary dark:text-primary-foreground dark:shadow-none'
+                  : 'border-zinc-300 bg-white text-zinc-600 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 dark:border-border dark:bg-card dark:text-muted-foreground dark:hover:border-primary/50 dark:hover:text-foreground dark:hover:bg-transparent'
                 }`}
             >
               {tag}

@@ -57,7 +57,7 @@ export default async function PostsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageTransition>
-        <section className='pb-24 pt-40'>
+        <section className='pb-24 pt-24 md:pt-40'>
           <div className='container max-w-3xl'>
             <Breadcrumbs items={[{ label: 'Posts', href: '/posts' }]} />
             <h1 className='title mb-12'>Posts</h1>

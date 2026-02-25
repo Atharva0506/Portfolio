@@ -3,7 +3,7 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons'
 
 export default function NotFound() {
   return (
-    <section className='pb-24 pt-40'>
+    <section className='pb-24 pt-24 md:pt-40'>
       <div className='min-h-full px-4 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8'>
         <div className='mx-auto max-w-max'>
           <main className='sm:flex'>

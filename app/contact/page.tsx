@@ -53,7 +53,7 @@ export default function Contact() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageTransition>
-        <section className='pb-24 pt-40'>
+        <section className='pb-24 pt-24 md:pt-40'>
           <div className='container max-w-3xl'>
             <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
             <h1 className='title'>Let&apos;s talk about your project</h1>

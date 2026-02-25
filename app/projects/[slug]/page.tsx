@@ -134,7 +134,7 @@ export default async function Project({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <PageTransition>
-        <section className='pb-24 pt-32'>
+        <section className='pb-24 pt-24 md:pt-32'>
           <div className='container max-w-3xl'>
             <Breadcrumbs
               items={[

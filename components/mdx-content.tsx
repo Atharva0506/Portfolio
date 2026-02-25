@@ -1,14 +1,29 @@
 
-import { JSX } from 'react'
+import { JSX, Children, isValidElement } from 'react'
 import { highlight } from 'sugar-high'
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 
 import Counter from '@/components/counter'
+import MermaidDiagram from '@/components/mermaid-diagram'
 
 function Code({ children, ...props }: any) {
-  let codeHTML = highlight(children)
+  const code = typeof children === 'string' ? children.replace(/\r\n/g, '\n') : children
+  let codeHTML = highlight(code)
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+}
+
+function Pre({ children, ...props }: any) {
+  const child = Children.only(children)
+  if (isValidElement(child)) {
+    const childProps = child.props as any
+    const className = childProps?.className || ''
+    if (className.includes('language-mermaid')) {
+      const chart = childProps?.children || ''
+      return <MermaidDiagram chart={String(chart)} />
+    }
+  }
+  return <pre {...props}>{children}</pre>
 }
 
 function Table({ data, ...props }: any) {
@@ -51,6 +66,7 @@ function Td(props: any) {
 
 const components = {
   code: Code,
+  pre: Pre,
   Counter,
   table: Table,
   thead: Thead,

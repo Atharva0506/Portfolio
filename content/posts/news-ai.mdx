@@ -36,6 +36,25 @@ At the heart of our backend lies a Directed Acyclic Graph (DAG) managed by **Lan
 
 The pipeline is defined in `backend/app/services/ai_agents/graph.py`. Data flows through a shared state object (`AgentState`), allowing agents to build upon each other's work.
 
+
+```mermaid
+
+graph TD
+    START([START]) --> Collector["🔍 Collector Node<br/>Quality Analysis"]
+    
+    Collector --> CheckQuality{Check Quality<br/>Score < 0.3?}
+    
+    CheckQuality -->|Yes| END1([END])
+    CheckQuality -->|No| Classifier["📂 Classifier Node<br/>Category, Sentiment, Tags"]
+    
+    Classifier --> Summarizer["📝 Summarizer Node<br/>Short & Detail Summary"]
+    
+    Summarizer --> Bias["⚖️ Bias Node<br/>Bias Score & Analysis"]
+    
+    Bias --> END2([END])
+    
+```
+
 1.  **The Collector (Gatekeeper)**:
     *   **Role**: Acts as the first line of defense. It analyzes raw content and assigns a `quality_score`.
     *   **Logic**: A conditional edge checks this score. If `quality_score < 0.3`, the pipeline terminates immediately via `END`, saving compute costs on low-value clickbait.

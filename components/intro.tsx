@@ -53,10 +53,8 @@ export default function Intro() {
           >
             {/* Soft gradient sweep on hover */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 dark:via-black/10" />
-            <span className="relative">Hire Me / Book a Call</span>
+            <span className="relative">Book a Call</span>
           </a>
-
-          {/* Secondary CTA — subtle gradient border */}
           <a
             href='/Atharva_Naik.pdf'
             download

@@ -3,7 +3,7 @@ import { getPosts } from '@/lib/posts'
 import { getProjects } from '@/lib/projects'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://atharva-naik-portfolio.vercel.app'
+  const baseUrl = 'https://atharvanaik.me'
 
   // Get all posts and projects for dynamic sitemap
   const posts = await getPosts()

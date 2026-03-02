@@ -12,7 +12,7 @@ import PageTransition from '@/components/page-transition'
 import Breadcrumbs from '@/components/breadcrumbs'
 import RelatedPosts from '@/components/related-posts'
 
-const baseUrl = 'https://atharva-naik-portfolio.vercel.app'
+const baseUrl = 'https://atharvanaik.me'
 
 export async function generateStaticParams() {
   const posts = await getPosts()

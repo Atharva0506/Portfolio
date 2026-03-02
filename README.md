@@ -4,7 +4,7 @@ Welcome to the source code of my personal portfolio website built with **Next.js
 This portfolio showcases my projects, skills, experience, and contact details.
 
 🔗 **Live Website:**  
-https://atharva-naik-portfolio.vercel.app/
+https://atharvanaik.me/
 
 ---
 

@@ -10,7 +10,7 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[]
 }
 
-const baseUrl = 'https://atharva-naik-portfolio.vercel.app'
+const baseUrl = 'https://atharvanaik.me'
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   // Generate JSON-LD structured data for breadcrumbs

@@ -3,7 +3,7 @@ import ContactForm from '@/components/contact-form'
 import PageTransition from '@/components/page-transition'
 import Breadcrumbs from '@/components/breadcrumbs'
 
-const baseUrl = 'https://atharva-naik-portfolio.vercel.app'
+const baseUrl = 'https://atharvanaik.me'
 
 export const metadata: Metadata = {
   title: 'Contact',

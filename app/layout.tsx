@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://atharva-naik-portfolio.vercel.app'),
+  metadataBase: new URL('https://atharvanaik.me'),
 
   title: {
     default: 'Atharva Naik | AI Full Stack Developer – LangChain, FastAPI, Next.js',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://atharva-naik-portfolio.vercel.app',
+    url: 'https://atharvanaik.me',
     siteName: 'Atharva Naik Portfolio',
     title: 'Atharva Naik | AI Full Stack Developer',
     description:
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: 'https://atharva-naik-portfolio.vercel.app',
+    canonical: 'https://atharvanaik.me',
   },
 
   manifest: '/manifest.json',
@@ -124,8 +124,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Atharva Naik",
-              url: "https://atharva-naik-portfolio.vercel.app",
-              image: "https://atharva-naik-portfolio.vercel.app/favicon.png",
+              url: "https://atharvanaik.me",
+              image: "https://atharvanaik.me/favicon.png",
               jobTitle: "AI Full Stack Developer",
               sameAs: [
                 "https://github.com/Atharva0506",

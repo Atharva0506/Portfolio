@@ -29,11 +29,11 @@ export default function TypingAnimation({
         if (isPaused) return
 
         if (!isDeleting) {
-            // Typing
+          
             if (displayText.length < currentPhrase.length) {
                 setDisplayText(currentPhrase.slice(0, displayText.length + 1))
             } else {
-                // Finished typing — pause before deleting
+                
                 setIsPaused(true)
                 setTimeout(() => {
                     setIsPaused(false)
@@ -41,11 +41,11 @@ export default function TypingAnimation({
                 }, pauseDuration)
             }
         } else {
-            // Deleting
+           
             if (displayText.length > 0) {
                 setDisplayText(displayText.slice(0, -1))
             } else {
-                // Finished deleting — move to next phrase
+               
                 setIsDeleting(false)
                 setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length)
             }
@@ -60,7 +60,7 @@ export default function TypingAnimation({
 
     return (
         <span className={cn('inline', className)}>
-            {/* SEO: full text in sr-only so crawlers see all phrases */}
+            
             <span className="sr-only">
                 {phrases.join(' · ')}
             </span>

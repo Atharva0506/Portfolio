@@ -24,7 +24,7 @@ export default function Intro() {
 
         <h1 className='title no-underline'>Atharva Naik — Full Stack Developer</h1>
 
-        {/* Typing subtitle — SEO-safe: all phrases present in sr-only */}
+        
         <p className='mt-3 h-7 text-base font-medium text-muted-foreground'>
           <TypingAnimation
             phrases={subtitlePhrases}
@@ -51,12 +51,10 @@ export default function Intro() {
             href='/contact'
             className='group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:shadow-xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:shadow-zinc-50/10 dark:focus:ring-zinc-100 dark:focus:ring-offset-black'
           >
-            {/* Soft gradient sweep on hover */}
+           
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 dark:via-black/10" />
-            <span className="relative">Hire Me / Book a Call</span>
+            <span className="relative">Book a Call</span>
           </a>
-
-          {/* Secondary CTA — subtle gradient border */}
           <a
             href='/Atharva_Naik.pdf'
             download

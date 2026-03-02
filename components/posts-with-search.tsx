@@ -25,7 +25,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
     return Array.from(tagSet).sort()
   }, [posts])
 
-  // Filter posts by tags AND search query
+  // Filter posst
   const filtered = useMemo(() => {
     return posts.filter(post => {
       const matchesTags =
@@ -39,7 +39,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
     })
   }, [posts, selectedTags, query])
 
-  // Search suggestions
+ 
   const suggestions = useMemo(() => {
     if (query.length < 2) return []
     return posts
@@ -51,19 +51,19 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
       .slice(0, 5)
   }, [posts, query])
 
-  // Pagination
+ 
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE))
   const paginatedPosts = filtered.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE
   )
 
-  // Reset page when filters change
+  
   useEffect(() => {
     setCurrentPage(1)
   }, [query, selectedTags])
 
-  // Close suggestions on outside click
+ 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
@@ -90,7 +90,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
 
   return (
     <div>
-      {/* Search with suggestions */}
+      
       <div ref={searchRef} className='relative mb-6'>
         <div className='flex items-center gap-3'>
           <div className='relative w-full sm:w-1/2'>
@@ -123,7 +123,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
           )}
         </div>
 
-        {/* Suggestions dropdown */}
+       
         {showSuggestions && suggestions.length > 0 && (
           <div className='absolute z-50 mt-1 w-full sm:w-1/2 rounded-lg border border-border bg-card shadow-lg'>
             {suggestions.map(post => (
@@ -162,7 +162,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
         })}
       </div>
 
-      {/* Posts list */}
+   
       {paginatedPosts.length > 0 ? (
         <Posts posts={paginatedPosts} />
       ) : (
@@ -171,7 +171,7 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
         </p>
       )}
 
-      {/* Pagination */}
+    
       {totalPages > 1 && (
         <div className='mt-12 flex items-center justify-center gap-2'>
           <Button

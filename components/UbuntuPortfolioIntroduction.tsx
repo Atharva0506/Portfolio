@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { X, ExternalLink, Terminal } from 'lucide-react'
 
-const UBUNTU_PORTFOLIO_URL = 'https://ubuntu-portfolio-eta.vercel.app/'
+const UBUNTU_PORTFOLIO_URL = 'https://ubuntu.atharvanaik.me/'
 const STORAGE_KEY = 'hasSeenUbuntuIntro'
 
 /**

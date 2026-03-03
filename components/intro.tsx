@@ -23,7 +23,7 @@ export default function Intro() {
           Open to Work — Full-Time &amp; Freelance
         </div>
 
-        <h1 className='title no-underline'>Atharva Naik — AI Full Stack Developer & Engineer</h1>
+        <h1 className='title no-underline'>Atharva Naik — Developer</h1>
 
 
         <p className='mt-3 h-7 text-base font-medium text-muted-foreground'>

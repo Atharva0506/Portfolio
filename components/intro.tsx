@@ -8,6 +8,7 @@ const subtitlePhrases = [
   'Shipping production-ready LLM apps',
   'Designing scalable FastAPI backends',
   'Crafting full stack AI experiences',
+  'Engineering RAG pipelines & AI workflows',
 ]
 
 export default function Intro() {
@@ -22,9 +23,9 @@ export default function Intro() {
           Open to Work — Full-Time &amp; Freelance
         </div>
 
-        <h1 className='title no-underline'>Atharva Naik — Full Stack Developer</h1>
+        <h1 className='title no-underline'>Atharva Naik — AI Full Stack Developer & Engineer</h1>
 
-        
+
         <p className='mt-3 h-7 text-base font-medium text-muted-foreground'>
           <TypingAnimation
             phrases={subtitlePhrases}
@@ -51,7 +52,7 @@ export default function Intro() {
             href='/contact'
             className='group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:shadow-xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:shadow-zinc-50/10 dark:focus:ring-zinc-100 dark:focus:ring-offset-black'
           >
-           
+
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 dark:via-black/10" />
             <span className="relative">Book a Call</span>
           </a>
@@ -78,7 +79,7 @@ export default function Intro() {
         <Image
           className='relative rounded-lg transition-all duration-500 hover:shadow-lg hover:shadow-zinc-300/50 dark:hover:shadow-zinc-800/50'
           src={authorImage}
-          alt='Atharva Naik — AI Full Stack Developer'
+          alt='Atharva Naik — AI Full Stack Developer specializing in LangChain, FastAPI, and Next.js'
           width={175}
           height={175}
           priority

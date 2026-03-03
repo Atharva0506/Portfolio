@@ -18,6 +18,14 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Bingbot',
         allow: '/',
       },
+      {
+        userAgent: 'DuckDuckBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'YandexBot',
+        allow: '/',
+      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,

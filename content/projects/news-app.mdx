@@ -41,13 +41,14 @@ experience by generating concise summaries of articles using AI.
 ## Technologies
 
 ### Frontend
-- **AngularJS**: Frontend framework for building dynamic user interfaces
+- **Next.js**: Frontend framework for building performant and dynamic user interfaces
 - **Tailwind CSS**: Utility-first CSS framework for responsive design
 
 ### Backend
-- **Node.js**: JavaScript runtime for backend services
-- **Express.js**: Web framework for building REST APIs
-- **Firebase**: Authentication and data storage
+- **FastAPI**: High-performance Python API framework
+- **LangGraph**: Multi-agent orchestration for AI pipelines
+- **MongoDB**: NoSQL database for flexible data storage
+- **SSE (Server-Sent Events)**: Real-time streaming of AI analysis results
 
 ### APIs
 - **Gemini API**: Used for summarizing and enhancing news content
@@ -57,22 +58,22 @@ experience by generating concise summaries of articles using AI.
 ### Prerequisites
 
 - Node.js
-- Angular CLI
-- Firebase account
+- Python 3.10+
+- MongoDB
 
 ### Installation
 
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/Atharva0506/google-competition.git
-cd News-APP
+git clone https://github.com/Atharva0506/news-app.git
+cd news-app
+# Frontend
+npm install
+npm run dev
+# Backend
 cd backend
-npm install
-npm run build
-npm run start
-cd frontend
-npm install
-ng serve -o
+pip install -r requirements.txt
+uvicorn main:app --reload
 ```
 

@@ -21,7 +21,7 @@ export const projects: Project[] = [
             '/images/projects/news-ai/news-app-4.png',
         ],
         githubUrl: 'https://github.com/Atharva0506/news-app',
-        liveUrl: 'https://news-app-delta-mocha-27.vercel.app/',
+        liveUrl: 'https://newsai.atharvanaik.me/',
     },
     {
         id: 'nakama-ai',

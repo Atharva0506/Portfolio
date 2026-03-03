@@ -104,19 +104,23 @@ export async function POST(req: Request) {
 Streaming responses significantly improve user experience by showing partial answers in real time rather than waiting for a full completion.
 
 ## ⚡ How I Used SWR Alongside AI
-While the AI SDK handles conversational data, I used SWR for non-AI client-side data fetching such as:
-User metadata
-Chat statistics
-Configuration or usage data
+
+While the AI SDK handles conversational data, I used **SWR** for non-AI client-side data fetching such as:
+
+- User metadata
+- Chat statistics
+- Configuration or usage data
+
 SWR provides:
-Caching
-Automatic revalidation
-Optimistic UI updates
-Focus revalidation
-Example SWR Usage
-Copy code
-```
-Ts
+
+- Caching
+- Automatic revalidation
+- Optimistic UI updates
+- Focus revalidation
+
+### Example SWR Usage
+
+```ts
 import useSWR from "swr";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
@@ -142,11 +146,12 @@ Metadata → SWR
 This makes it easy to evolve from a single chatbot into multi-agent systems, tool calling, or RAG-based workflows.
 
 ## 💡 Learnings & Best Practices
-Streaming is critical for good AI UX
-Keep AI logic server-side for security
-Use SWR only for non-AI data
-Vercel AI SDK makes provider switching painless
-Modular APIs help scale toward agent-based systems
+
+- Streaming is critical for good AI UX
+- Keep AI logic server-side for security
+- Use SWR only for non-AI data
+- Vercel AI SDK makes provider switching painless
+- Modular APIs help scale toward agent-based systems
 
 ## 🚀 Deployment
 The application is deployed on Vercel, leveraging:

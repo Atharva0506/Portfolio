@@ -13,7 +13,11 @@ export const metadata: Metadata = {
     'contact software engineer',
     'AI consulting services',
     'freelance AI developer India',
-    'FastAPI developer for hire'
+    'FastAPI developer for hire',
+    'LangChain consulting',
+    'full stack AI developer for hire',
+    'hire Python developer India',
+    'AI engineer contact',
   ],
   openGraph: {
     title: 'Contact | Atharva Naik',
@@ -56,7 +60,7 @@ export default function Contact() {
         <section className='pb-24 pt-24 md:pt-40'>
           <div className='container max-w-3xl'>
             <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
-            <h1 className='title'>Let&apos;s talk about your project</h1>
+            <h1 className='title'>Let&apos;s Talk — Hire an AI Developer</h1>
 
             <ContactForm />
           </div>

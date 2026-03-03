@@ -31,13 +31,20 @@ export const metadata: Metadata = {
     'Atharva Naik',
     'AI Engineer India',
     'Software Developer Portfolio',
+    'Full Stack Developer India',
     'FastAPI Developer',
     'LLM Developer',
     'LangChain Developer',
     'Next.js Developer',
     'Machine Learning Engineer',
     'Cloud Architect',
-    'AI Developer'
+    'AI Developer',
+    'hire AI developer',
+    'Python developer portfolio',
+    'AI consulting India',
+    'Golang Developer',
+    'RAG developer',
+    'multi-agent AI systems',
   ],
 
   authors: [{ name: 'Atharva Naik' }],
@@ -127,9 +134,33 @@ export default function RootLayout({
               url: "https://atharvanaik.me",
               image: "https://atharvanaik.me/favicon.png",
               jobTitle: "AI Full Stack Developer",
+              description: "AI Full Stack Developer building production-ready LLM apps, multi-agent systems, and scalable backends with Python, FastAPI, LangChain, and Next.js.",
+              knowsAbout: [
+                "Artificial Intelligence",
+                "Large Language Models",
+                "LangChain",
+                "FastAPI",
+                "Next.js",
+                "Python",
+                "RAG Systems",
+                "Multi-Agent AI",
+                "Golang",
+                "Cloud Architecture"
+              ],
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "Savitribai Phule Pune University"
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Pune",
+                addressCountry: "IN"
+              },
               sameAs: [
                 "https://github.com/Atharva0506",
-                "https://www.linkedin.com/in/atharva0506"
+                "https://www.linkedin.com/in/atharva0506",
+                "https://x.com/Atharva_0506",
+                "https://g.dev/Atharva0506"
               ]
             }),
           }}

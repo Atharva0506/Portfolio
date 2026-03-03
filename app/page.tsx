@@ -30,7 +30,7 @@ const faqItems = [
 
 export default function Home() {
   return (
-    <section className='pb-24 pt-24 md:pt-40'>
+    <section className='pb-24 pt-24 md:pt-32'>
       <div className='container max-w-3xl'>
         <AnimatedSection delay={0} animation="fade-up">
           <Intro />

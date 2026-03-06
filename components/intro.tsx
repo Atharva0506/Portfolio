@@ -82,6 +82,7 @@ export default function Intro() {
           alt='Atharva Naik — AI Full Stack Developer specializing in LangChain, FastAPI, and Next.js'
           width={175}
           height={175}
+          placeholder='blur'
           priority
         />
       </div>

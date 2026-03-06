@@ -8,6 +8,21 @@ const nextConfig = {
             },
         ],
     },
+    async redirects() {
+        return [
+            {
+                source: '/:path*',
+                has: [
+                    {
+                        type: 'host',
+                        value: 'atharva-naik-portfolio.vercel.app',
+                    },
+                ],
+                destination: 'https://atharvanaik.me/:path*',
+                permanent: true,
+            },
+        ];
+    },
 };
 
 export default nextConfig;

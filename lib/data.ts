@@ -93,6 +93,7 @@ export const skills: Record<string, SkillCategory> = {
             { name: 'REST API Design', level: 'advanced' },
             { name: 'SSE / WebSockets', level: 'intermediate' },
         ],
+        highlight: true,
     },
     'Frontend Development': {
         items: [
@@ -105,10 +106,23 @@ export const skills: Record<string, SkillCategory> = {
     'Infrastructure & DevOps': {
         items: [
             { name: 'Docker', level: 'intermediate' },
-            { name: 'AWS (EC2, S3)', level: 'beginner' },
+            { name: 'AWS', level: 'beginner' },
             { name: 'CI/CD (GitHub Actions)', level: 'intermediate' },
             { name: 'PostgreSQL / MongoDB', level: 'intermediate' },
             { name: 'Git & GitHub', level: 'advanced' },
+        ],
+        highlight: true,
+
+    },
+    'Blockchain & Web3': {
+        items: [
+            { name: 'Solidity', level: 'beginner' },
+            { name: 'Ethereum', level: 'beginner' },
+            { name: 'Solana', level: 'beginner' },
+            { name: 'Smart Contracts', level: 'beginner' },
+            { name: 'Web3.js / Ethers.js', level: 'beginner' },
+            { name: 'Hardhat / Foundry', level: 'beginner' },
+            { name: 'MetaMask & Wallets', level: 'beginner' },
         ],
     },
 }

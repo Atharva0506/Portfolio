@@ -150,7 +150,13 @@ If you'd like to collaborate, discuss ideas, or connect:
 
 ## 📄 License
 
-This project is open source and available under the **MIT License**.
+This project uses a **dual license**:
+
+- **Code** — [MIT License](./LICENSE.md)
+- **Blog Content** (`/content`) — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+See [LICENSE.md](./LICENSE.md) for full details.
+
 
 ---
 

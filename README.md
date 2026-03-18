@@ -97,13 +97,13 @@ cd Portfolio
 ### 2️⃣ Install Dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 3️⃣ Run the Development Server
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ### 4️⃣ Open in Browser
@@ -121,8 +121,8 @@ http://localhost:3000
 To create an optimized production build:
 
 ```bash
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 ---

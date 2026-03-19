@@ -9,8 +9,10 @@ import {
   Preview,
   Section,
   Text,
-  render
+  Tailwind
 } from '@react-email/components'
+
+
 
 interface AutoResponseEmailProps {
   name: string
@@ -22,77 +24,34 @@ export const AutoResponseEmail: React.FC<Readonly<AutoResponseEmailProps>> = ({
   <Html>
     <Head />
     <Preview>Thank you for reaching out!</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Section style={header}>
-          <Heading style={h1}>Hi {name},</Heading>
-        </Section>
-        <Section style={content}>
-          <Text style={paragraph}>
-            Thank you for reaching out to me through my portfolio. I have successfully received your message and will get back to you as soon as possible.
-          </Text>
-          <Text style={paragraph}>
-            In the meantime, feel free to explore my latest projects or connect with me on social media. I usually respond within 24-48 hours.
-          </Text>
-          <Hr style={hr} />
-          <Text style={footer}>
-            Best regards,<br />
-            Atharva Naik
-          </Text>
-        </Section>
-      </Container>
-    </Body>
+    <Tailwind>
+      <Body className="bg-white my-auto mx-auto font-sans">
+        <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]">
+          <Section className="mt-[32px]">
+            <Heading className="text-black text-[24px] font-normal text-left p-0 my-[30px] mx-0">
+              Hi <strong>{name}</strong>,
+            </Heading>
+            <Text className="text-black text-[14px] leading-[24px]">
+              Thank you for reaching out to me through my portfolio. I have successfully received your message and will get back to you as soon as possible.
+            </Text>
+            <Text className="text-black text-[14px] leading-[24px]">
+              In the meantime, feel free to explore my latest projects or connect with me on social media. I usually respond within 24-48 hours.
+            </Text>
+
+            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
+
+            <Section className="text-left">
+              <Text className="text-[#8898aa] text-[14px] leading-[24px] m-0">
+                <strong>Atharva Girish Naik</strong><br />
+                <a href="mailto:atharvan.coder@gmail.com" className="text-emerald-600 no-underline">atharvan.coder@gmail.com</a> | +91 9226781673<br />
+                <a href="https://linkedin.com/in/Atharva0506" className="text-emerald-600 no-underline">LinkedIn</a> | <a href="https://github.com/Atharva0506" className="text-emerald-600 no-underline">GitHub</a> | <a href="https://atharvanaik.me" className="text-emerald-600 no-underline">atharvanaik.me</a>
+              </Text>
+            </Section>
+          </Section>
+        </Container>
+      </Body>
+    </Tailwind>
   </Html>
 )
 
 export default AutoResponseEmail
-
-const main = {
-  backgroundColor: '#ffffff',
-  fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
-}
-
-const container = {
-  margin: '0 auto',
-  padding: '20px 0 48px',
-  width: '580px'
-}
-
-const header = {
-  padding: '32px 0'
-}
-
-const h1 = {
-  color: '#1a1a1a',
-  fontSize: '24px',
-  fontWeight: '700',
-  lineHeight: '32px',
-  margin: '0',
-  textAlign: 'left' as const
-}
-
-const content = {
-  padding: '0 0 32px'
-}
-
-const paragraph = {
-  color: '#444',
-  fontSize: '16px',
-  lineHeight: '26px',
-  margin: '16px 0',
-  textAlign: 'left' as const
-}
-
-const hr = {
-  borderColor: '#e6ebf1',
-  margin: '20px 0'
-}
-
-const footer = {
-  color: '#8898aa',
-  fontSize: '14px',
-  lineHeight: '22px',
-  margin: '16px 0',
-  textAlign: 'left' as const
-}

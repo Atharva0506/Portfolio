@@ -7,7 +7,9 @@ import {
   Html,
   Preview,
   Section,
-  Text
+  Text,
+  Tailwind,
+  Hr
 } from '@react-email/components'
 
 interface ContactFormEmailProps {
@@ -24,62 +26,46 @@ export const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
   <Html>
     <Head />
     <Preview>New Contact Form Submission from {name}</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Heading style={h1}>New Portfolio Message</Heading>
-        <Section style={section}>
-          <Text style={label}>From:</Text>
-          <Text style={value}>{name} ({email})</Text>
-          
-          <Text style={label}>Message:</Text>
-          <Text style={text}>{message}</Text>
-        </Section>
-      </Container>
-    </Body>
+    <Tailwind>
+      <Body className="bg-[#f6f9fc] my-auto mx-auto font-sans">
+        <Container className="bg-white border border-solid border-[#f0f0f0] rounded-lg my-[40px] mx-auto p-[45px] max-w-[580px]">
+          <Section>
+            <Heading className="text-[#333] text-[24px] font-bold text-left p-0 my-[40px] mx-0">
+              New Portfolio Message
+            </Heading>
+            
+            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
+            
+            <Section className="my-[20px]">
+              <Text className="text-[#888] text-[12px] font-bold uppercase mb-[5px] m-0">
+                From:
+              </Text>
+              <Text className="text-[#333] text-[16px] leading-[24px] font-semibold m-0">
+                {name} (<span className="text-emerald-600 underline">{email}</span>)
+              </Text>
+            </Section>
+
+            <Section className="my-[20px]">
+              <Text className="text-[#888] text-[12px] font-bold uppercase mb-[5px] m-0">
+                Message:
+              </Text>
+              <Section className="bg-[#f9f9f9] border border-solid border-[#eaeaea] rounded p-[20px] my-[10px]">
+                <Text className="text-[#333] text-[16px] leading-[26px] m-0 italic">
+                  "{message}"
+                </Text>
+              </Section>
+            </Section>
+            
+            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
+            
+            <Text className="text-[#8898aa] text-[14px]">
+              This is an automated notification from your portfolio contact form.
+            </Text>
+          </Section>
+        </Container>
+      </Body>
+    </Tailwind>
   </Html>
 )
 
 export default ContactFormEmail
-
-const main = {
-  backgroundColor: '#f6f9fc',
-  padding: '10px 0'
-}
-
-const container = {
-  backgroundColor: '#ffffff',
-  border: '1px solid #f0f0f0',
-  padding: '45px'
-}
-
-const h1 = {
-  color: '#333',
-  fontSize: '24px',
-  fontWeight: 'bold',
-  margin: '40px 0',
-  padding: '0'
-}
-
-const section = {
-  margin: '0'
-}
-
-const label = {
-  color: '#888',
-  fontSize: '12px',
-  fontWeight: 'bold',
-  textTransform: 'uppercase' as const,
-  margin: '0 0 5px'
-}
-
-const value = {
-  color: '#333',
-  fontSize: '16px',
-  margin: '0 0 20px'
-}
-
-const text = {
-  color: '#333',
-  fontSize: '16px',
-  lineHeight: '26px'
-}

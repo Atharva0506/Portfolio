@@ -4,6 +4,8 @@ import { ExternalLink, Github } from 'lucide-react'
 
 import { Project } from '@/lib/data'
 import MouseGlowCard from '@/components/mouse-glow-card'
+import ProjectImageCarousel from '@/components/project-image-carousel'
+import { CarouselProvider } from '@/components/carousel-context'
 
 export default function Projects({
   projects
@@ -11,31 +13,21 @@ export default function Projects({
   projects: Project[]
 }) {
   return (
-    <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
-      {projects.map(project => (
+    <CarouselProvider interval={4000}>
+      <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
+      {projects.map((project, index) => (
         <MouseGlowCard
           key={project.id}
           className='group relative overflow-hidden rounded-2xl border border-zinc-200/60 bg-white/50 transition-all duration-500 hover:border-zinc-300 hover:shadow-xl hover:shadow-zinc-200/40 hover:-translate-y-1.5 dark:border-zinc-800/60 dark:bg-zinc-900/30 dark:hover:border-zinc-700 dark:hover:shadow-zinc-900/50'
         >
           <li className='flex h-full flex-col'>
-            {/* Project Image */}
+            {/* Project Image Carousel */}
             <div className='relative aspect-[16/9] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800/50'>
-              {project.images && project.images.length > 0 ? (
-                <>
-                  <Image
-                    src={project.images[0]}
-                    alt={project.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className='object-cover transition-transform duration-700 group-hover:scale-105 group-hover:duration-500'
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-black/80 dark:via-black/20" />
-                </>
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 text-zinc-400 dark:from-zinc-800 dark:to-zinc-900">
-                  <span className="text-sm font-medium tracking-wide">No Preview Available</span>
-                </div>
-              )}
+              <ProjectImageCarousel 
+                images={project.images} 
+                projectName={project.name} 
+                priority={index < 2}
+              />
 
               {/* Quick links on image hover (optional enhancement, visible on hover) */}
               <div className="absolute bottom-4 right-4 flex scale-95 items-center gap-x-2 opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
@@ -93,5 +85,6 @@ export default function Projects({
         </MouseGlowCard>
       ))}
     </ul>
+    </CarouselProvider>
   )
 }

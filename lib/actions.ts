@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { Resend } from 'resend'
 import { ContactFormSchema, NewsletterFormSchema } from '@/lib/schemas'
 import ContactFormEmail from '@/emails/contact-form-email'
+import AutoResponseEmail from '@/emails/auto-response-email'
 
 type ContactFormInputs = z.infer<typeof ContactFormSchema>
 type NewsletterFormInputs = z.infer<typeof NewsletterFormSchema>
@@ -18,18 +19,23 @@ export async function sendEmail(data: ContactFormInputs) {
 
   try {
     const { name, email, message } = result.data
-    const { data, error } = await resend.emails.send({
+
+    // 1. me
+    await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: [email],
-      cc: ['onboarding@resend.dev'],
-      subject: 'Contact form submission',
+      to: ['onboarding@resend.dev'], // Send to owner (replace with verified domain image if available)
+      subject: `New Message From Portfolio: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       react: ContactFormEmail({ name, email, message })
     })
 
-    if (!data || error) {
-      throw new Error('Failed to send email')
-    }
+    // 2.  visitor
+    await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: [email],
+      subject: 'Thank you for reaching out!',
+      react: AutoResponseEmail({ name })
+    })
 
     return { success: true }
   } catch (error) {

@@ -55,9 +55,8 @@ export const projects: Project[] = [
         description: 'An internal RAG assistant built for Tata Consultancy Services to support developer documentation and debugging. Reduced debugging and information lookup time by 35%.',
         techStack: ['Python', 'FastAPI', 'LangChain', 'Vector Databases'],
         images: [
-            'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
-            'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800',
-            'https://images.unsplash.com/photo-1607799275518-d58665d099db?w=800',
+            '/images/projects/vscode-ai/vscode-ai-assistant-1.png',
+            '/images/projects/vscode-ai/vscode-ai-assistant-2.png',
         ],
         githubUrl: undefined,
         liveUrl: null,

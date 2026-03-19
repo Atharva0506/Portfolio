@@ -30,7 +30,7 @@ export default function Projects({
               />
 
               {/* Quick links on image hover (optional enhancement, visible on hover) */}
-              <div className="absolute bottom-4 right-4 flex scale-95 items-center gap-x-2 opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
+              <div className="absolute bottom-4 right-4 z-40 flex scale-95 items-center gap-x-2 opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
                 {project.githubUrl && (
                   <Link
                     href={project.githubUrl}

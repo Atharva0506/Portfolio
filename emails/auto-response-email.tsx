@@ -9,8 +9,11 @@ import {
   Preview,
   Section,
   Text,
-  Tailwind
+  Tailwind,
+  Img
 } from '@react-email/components'
+
+const baseUrl = 'https://atharvanaik.me'
 
 
 
@@ -40,7 +43,13 @@ export const AutoResponseEmail: React.FC<Readonly<AutoResponseEmailProps>> = ({
 
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
 
-            <Section className="text-left">
+            <Section className="flex items-center gap-4">
+              <Img
+                src={`${baseUrl}/favicon.png`}
+                width="48"
+                height="48"
+                alt="Atharva Naik"
+              />
               <Text className="text-[#8898aa] text-[14px] leading-[24px] m-0">
                 <strong>Atharva Girish Naik</strong><br />
                 <a href="mailto:atharvan.coder@gmail.com" className="text-emerald-600 no-underline">atharvan.coder@gmail.com</a> | +91 9226781673<br />

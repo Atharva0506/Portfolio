@@ -68,7 +68,7 @@ export default function ProjectImageCarousel({
               loading={priority && index === 0 ? "eager" : "lazy"}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={cn(
-                "object-cover transition-transform duration-[2000ms] ease-out",
+                "object-cover transition-transform duration-2000 ease-out",
                 isActive && mounted ? "scale-105" : "scale-100"
               )}
             />

@@ -64,6 +64,8 @@ export const projects: Project[] = [
     },
 ]
 
+import { Bot, Server, Layout, Cloud, Cpu, LucideIcon } from 'lucide-react'
+
 export type SkillItem = {
     name: string
     level: 'advanced' | 'intermediate' | 'beginner'
@@ -72,6 +74,7 @@ export type SkillItem = {
 export type SkillCategory = {
     items: SkillItem[]
     highlight?: boolean
+    icon: LucideIcon
 }
 
 export const skills: Record<string, SkillCategory> = {
@@ -84,6 +87,7 @@ export const skills: Record<string, SkillCategory> = {
             { name: 'LLaMA Fine-Tuning', level: 'intermediate' },
         ],
         highlight: true,
+        icon: Bot,
     },
     'Backend Development': {
         items: [
@@ -94,6 +98,7 @@ export const skills: Record<string, SkillCategory> = {
             { name: 'SSE / WebSockets', level: 'intermediate' },
         ],
         highlight: true,
+        icon: Server,
     },
     'Frontend Development': {
         items: [
@@ -102,6 +107,8 @@ export const skills: Record<string, SkillCategory> = {
             { name: 'TypeScript', level: 'intermediate' },
             { name: 'Tailwind CSS', level: 'advanced' },
         ],
+        highlight: true,
+        icon: Layout,
     },
     'Infrastructure & DevOps': {
         items: [
@@ -112,7 +119,7 @@ export const skills: Record<string, SkillCategory> = {
             { name: 'Git & GitHub', level: 'advanced' },
         ],
         highlight: true,
-
+        icon: Cloud,
     },
     'Blockchain & Web3': {
         items: [
@@ -120,9 +127,11 @@ export const skills: Record<string, SkillCategory> = {
             { name: 'Ethereum', level: 'beginner' },
             { name: 'Solana', level: 'beginner' },
             { name: 'Smart Contracts', level: 'beginner' },
-            { name: 'Web3.js / Ethers.js', level: 'beginner' },
+            { name: 'Web3.js / Ethers.js', level: 'intermediate' },
             { name: 'Hardhat / Foundry', level: 'beginner' },
-            { name: 'MetaMask & Wallets', level: 'beginner' },
+            { name: 'MetaMask & Wallets', level: 'intermediate' },
         ],
+        highlight: true,
+        icon: Cpu,
     },
 }

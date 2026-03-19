@@ -6,7 +6,7 @@ export default function RecentProjects() {
   return (
     <section className='pb-24'>
       <div>
-        <h2 className='title mb-12'>AI Engineering Projects</h2>
+        <h2 className='title mb-12'>Projects</h2>
         <Projects projects={projects.slice(0, 2)} />
 
         <Link

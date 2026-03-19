@@ -36,7 +36,7 @@ export default function Skills() {
 
             {/* Bento Grid layout */}
             <div className='grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 auto-rows-[minmax(180px,auto)]'>
-                {Object.entries(skills).map(([category, { items, highlight }], index) => {
+                {Object.entries(skills).map(([category, { items, highlight, icon: Icon }], index) => {
                     // Determine grid placement based on index/category for Bento feel
                     const isLarge = highlight || category === 'Backend Development';
                     const colSpanClass = isLarge
@@ -56,11 +56,12 @@ export default function Skills() {
                         >
                             <div className="flex flex-col gap-y-4 relative z-10">
                                 <h3 className={cn(
-                                    'text-lg font-bold tracking-tight',
+                                    'flex items-center gap-2 text-lg font-bold tracking-tight',
                                     highlight
                                         ? 'text-emerald-800 dark:text-emerald-300'
                                         : 'text-zinc-800 dark:text-zinc-200'
                                 )}>
+                                    {Icon && <Icon size={22} className="shrink-0" />}
                                     {category}
                                 </h3>
                                 <div className='flex flex-wrap gap-2'>

@@ -15,8 +15,6 @@ import {
 
 const baseUrl = 'https://atharvanaik.me'
 
-
-
 interface AutoResponseEmailProps {
   name: string
 }

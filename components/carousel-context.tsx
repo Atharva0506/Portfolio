@@ -25,10 +25,7 @@ export function CarouselProvider({
   }, [])
 
   useEffect(() => {
-
-
     const timer = setInterval(() => {
-
       if (hoverCount === 0) {
         setGlobalIndex(prev => prev + 1)
       }

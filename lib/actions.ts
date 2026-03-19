@@ -2,9 +2,12 @@
 
 import { z } from 'zod'
 import { Resend } from 'resend'
-import { ContactFormSchema, NewsletterFormSchema } from '@/lib/schemas'
+import { ContactFormSchema } from '@/lib/schemas'
 import ContactFormEmail from '@/emails/contact-form-email'
 import AutoResponseEmail from '@/emails/auto-response-email'
+
+const RESEND_SENDER = 'Atharva Naik <hello@contact.atharvanaik.me>'
+const CONTACT_RECIPIENT = 'atharvan.coder@gmail.com'
 
 type ContactFormInputs = z.infer<typeof ContactFormSchema>
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -21,8 +24,8 @@ export async function sendEmail(data: ContactFormInputs) {
 
     // 1. me (Receive)
     await resend.emails.send({
-      from: 'Portfolio <hello@contact.atharvanaik.me>',
-      to: ['atharvan.coder@gmail.com'],
+      from: RESEND_SENDER,
+      to: [CONTACT_RECIPIENT],
       subject: `New Message From Portfolio: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       react: ContactFormEmail({ name, email, message })
@@ -30,7 +33,7 @@ export async function sendEmail(data: ContactFormInputs) {
 
     // 2. visitor (Send)
     await resend.emails.send({
-      from: 'Atharva Naik <hello@contact.atharvanaik.me>',
+      from: RESEND_SENDER,
       to: [email],
       subject: 'Thank you for reaching out!',
       react: AutoResponseEmail({ name })

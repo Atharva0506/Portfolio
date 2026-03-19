@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
 
 import { Project } from '@/lib/data'
 import MouseGlowCard from '@/components/mouse-glow-card'
@@ -37,7 +38,7 @@ export default function Projects({
                     className='rounded-full bg-white/90 p-2 text-zinc-900 shadow-sm backdrop-blur-md transition-colors hover:bg-white dark:bg-zinc-900/90 dark:text-zinc-50 dark:hover:bg-zinc-900'
                     aria-label="GitHub Repository"
                   >
-                    <Github className='size-4' />
+                    <GitHubLogoIcon className='size-4' />
                   </Link>
                 )}
                 {project.liveUrl && (

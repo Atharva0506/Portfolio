@@ -2,6 +2,7 @@ import Intro from '@/components/intro'
 import Skills from '@/components/skills'
 import RecentPosts from '@/components/recent-posts'
 import RecentProjects from '@/components/recent-projects'
+import RecentContributions from '@/components/recent-contributions'
 import AnimatedSection from '@/components/animated-section'
 import FAQSection from '@/components/faq-section'
 
@@ -49,6 +50,10 @@ export default function Home() {
         </AnimatedSection>
 
         <AnimatedSection delay={600} animation="fade-up">
+          <RecentContributions />
+        </AnimatedSection>
+
+        <AnimatedSection delay={750} animation="fade-up">
           <FAQSection items={faqItems} />
         </AnimatedSection>
       </div>

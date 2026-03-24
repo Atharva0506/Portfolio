@@ -25,6 +25,12 @@ export default function Header() {
             </Link>
           </li>
           <li className='group transition-colors hover:text-foreground'>
+            <Link href='/contributions' className='relative pb-1'>
+              Contributions
+              <span className='absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300 group-hover:w-full' />
+            </Link>
+          </li>
+          <li className='group transition-colors hover:text-foreground'>
             <Link href='/contact' className='relative pb-1'>
               Contact
               <span className='absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300 group-hover:w-full' />

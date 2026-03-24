@@ -7,7 +7,10 @@ import {
 } from '@/lib/github-contributions'
 
 export default async function RecentContributions() {
-  const contributions = await getGitHubContributions(4).catch(() =>
+  const contributions = await getGitHubContributions({
+    mode: 'preview',
+    previewLimit: 2,
+  }).catch(() =>
     createEmptyGitHubContributions()
   )
 
@@ -15,7 +18,7 @@ export default async function RecentContributions() {
     <section className='pb-24'>
       <div>
         <h2 className='title mb-12'>GitHub Contributions</h2>
-        <Contributions data={contributions} compact />
+        <Contributions data={contributions} compact compactLimit={2} />
 
         <Link
           href='/contributions'

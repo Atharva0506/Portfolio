@@ -23,6 +23,7 @@ import {
 type ContributionsProps = {
   data: GitHubContributionsResponse
   compact?: boolean
+  compactLimit?: number
 }
 
 type ContributionFilter = {
@@ -33,7 +34,7 @@ type ContributionFilter = {
 type ViewMode = 'grid' | 'list'
 
 const MAX_LABELS = 3
-const COMPACT_LIMIT = 4
+const DEFAULT_COMPACT_LIMIT = 4
 
 const CONTRIBUTION_FILTERS: ContributionFilter[] = [
   {
@@ -69,7 +70,15 @@ function getFilterCount(
   data: GitHubContributionsResponse,
   filter: ContributionKind
 ): number {
-  return getItemsByFilter(data, filter).length
+  if (filter === 'merged_pr') {
+    return data.mergedPrsTotal
+  }
+
+  if (filter === 'open_pr') {
+    return data.openPrsTotal
+  }
+
+  return data.issuesTotal
 }
 
 function getItemIcon(kind: ContributionKind) {
@@ -289,19 +298,25 @@ function EmptyState() {
   )
 }
 
-export default function Contributions({ data, compact = false }: ContributionsProps) {
+export default function Contributions({
+  data,
+  compact = false,
+  compactLimit = DEFAULT_COMPACT_LIMIT,
+}: ContributionsProps) {
   const [activeFilter, setActiveFilter] = useState<ContributionKind>('merged_pr')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
+
+  const totalForActiveFilter = getFilterCount(data, activeFilter)
 
   const items = useMemo(() => {
     const sorted = getSortedItems(getItemsByFilter(data, activeFilter))
 
     if (compact) {
-      return sorted.slice(0, COMPACT_LIMIT)
+      return sorted.slice(0, compactLimit)
     }
 
     return sorted
-  }, [activeFilter, compact, data])
+  }, [activeFilter, compact, compactLimit, data])
 
   return (
     <>
@@ -313,6 +328,12 @@ export default function Contributions({ data, compact = false }: ContributionsPr
         />
         <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
       </div>
+
+      {compact ? (
+        <p className='mb-5 text-xs text-muted-foreground'>
+          Showing {items.length} of {totalForActiveFilter} {activeFilter === 'issue' ? 'issues' : 'pull requests'}.
+        </p>
+      ) : null}
 
       {items.length === 0 ? (
         <EmptyState />

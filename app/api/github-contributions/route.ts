@@ -5,7 +5,7 @@ const CACHE_SECONDS = 3600
 
 export async function GET() {
   try {
-    const contributions = await getGitHubContributions()
+    const contributions = await getGitHubContributions({ mode: 'full' })
 
     return NextResponse.json(contributions, {
       headers: {

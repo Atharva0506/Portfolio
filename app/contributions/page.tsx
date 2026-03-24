@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ContributionsPage() {
-  const contributions = await getGitHubContributions(12).catch(() =>
+  const contributions = await getGitHubContributions({ mode: 'full' }).catch(() =>
     createEmptyGitHubContributions()
   )
 

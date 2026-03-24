@@ -40,7 +40,11 @@ export default function Home() {
         <AnimatedSection delay={150} animation="fade-up">
           <Skills />
         </AnimatedSection>
-
+        
+        <AnimatedSection delay={600} animation="fade-up">
+          <RecentContributions />
+        </AnimatedSection>
+        
         <AnimatedSection delay={300} animation="fade-up">
           <RecentPosts />
         </AnimatedSection>
@@ -49,9 +53,6 @@ export default function Home() {
           <RecentProjects />
         </AnimatedSection>
 
-        <AnimatedSection delay={600} animation="fade-up">
-          <RecentContributions />
-        </AnimatedSection>
 
         <AnimatedSection delay={750} animation="fade-up">
           <FAQSection items={faqItems} />

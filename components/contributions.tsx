@@ -224,7 +224,7 @@ function ViewToggle({
   setViewMode: (mode: ViewMode) => void
 }) {
   return (
-    <div className='inline-flex items-center rounded-lg border border-border/80 bg-card/60 p-1'>
+    <div className='inline-flex self-start items-center rounded-lg border border-border/80 bg-card/60 p-1 sm:self-auto'>
       <button
         type='button'
         onClick={() => setViewMode('grid')}

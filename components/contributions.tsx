@@ -168,10 +168,10 @@ function ContributionListItem({ item }: { item: ContributionItem }) {
       <Link
         href={item.url}
         target='_blank'
-        className='flex flex-col gap-4 rounded-2xl border border-border/80 bg-card/70 p-4 transition-all duration-500 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-lg sm:flex-row sm:items-center sm:justify-between sm:p-5'
+        className='-mx-2 flex flex-col justify-between gap-x-4 gap-y-2 rounded-lg border-l-2 border-transparent px-4 py-3 transition-all duration-300 hover:border-blue-400 hover:bg-blue-50/40 hover:shadow-sm dark:hover:border-zinc-500 dark:hover:bg-zinc-900/50 dark:hover:shadow-none sm:flex-row sm:items-center'
       >
         <div className='min-w-0'>
-          <div className='mb-2 flex min-w-0 items-center gap-2 text-sm text-muted-foreground'>
+          <div className='mb-2 flex min-w-0 flex-wrap items-center gap-2 text-sm text-muted-foreground'>
             <Image
               src={item.orgAvatarUrl}
               alt={`${item.orgName} avatar`}
@@ -188,7 +188,7 @@ function ContributionListItem({ item }: { item: ContributionItem }) {
             </span>
           </div>
 
-          <p className='line-clamp-2 text-base font-semibold text-foreground'>
+          <p className='line-clamp-2 text-base font-semibold text-foreground transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-300'>
             {item.title}
           </p>
 
@@ -204,7 +204,7 @@ function ContributionListItem({ item }: { item: ContributionItem }) {
           </div>
         </div>
 
-        <div className='flex shrink-0 items-end justify-between gap-3 text-xs text-muted-foreground sm:flex-col sm:items-end'>
+        <div className='mt-1 flex shrink-0 flex-col items-start gap-1 text-xs text-muted-foreground sm:items-end'>
           <div className='text-right'>
             <p>Created {formatDate(item.createdAt)}</p>
             {item.mergedAt ? <p>Merged {formatDate(item.mergedAt)}</p> : null}
@@ -344,7 +344,7 @@ export default function Contributions({
           ))}
         </ul>
       ) : (
-        <ul className='flex flex-col gap-4'>
+        <ul className='flex flex-col gap-6'>
           {items.map((item) => (
             <ContributionListItem key={`${item.kind}-list-${item.id}`} item={item} />
           ))}

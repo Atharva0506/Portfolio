@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import {
   ExternalLink,
   GitPullRequest,
@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 
 import MouseGlowCard from '@/components/mouse-glow-card'
+import Pagination from '@/components/pagination'
 import { formatDate } from '@/lib/utils'
 import {
   ContributionItem,
@@ -305,8 +306,15 @@ export default function Contributions({
 }: ContributionsProps) {
   const [activeFilter, setActiveFilter] = useState<ContributionKind>('merged_pr')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
+  const [currentPage, setCurrentPage] = useState(1)
 
+  const ITEMS_PER_PAGE = 8
   const totalForActiveFilter = getFilterCount(data, activeFilter)
+  const totalPages = Math.max(1, Math.ceil(totalForActiveFilter / ITEMS_PER_PAGE))
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [activeFilter])
 
   const items = useMemo(() => {
     const sorted = getSortedItems(getItemsByFilter(data, activeFilter))
@@ -315,8 +323,10 @@ export default function Contributions({
       return sorted.slice(0, compactLimit)
     }
 
-    return sorted
-  }, [activeFilter, compact, compactLimit, data])
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    return sorted.slice(startIndex, endIndex)
+  }, [activeFilter, compact, compactLimit, data, currentPage, ITEMS_PER_PAGE])
 
   return (
     <>
@@ -349,6 +359,14 @@ export default function Contributions({
             <ContributionListItem key={`${item.kind}-list-${item.id}`} item={item} />
           ))}
         </ul>
+      )}
+
+      {!compact && totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       )}
     </>
   )

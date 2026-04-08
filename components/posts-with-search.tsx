@@ -8,8 +8,9 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react'
+import Pagination from '@/components/pagination'
 
-const POSTS_PER_PAGE = 5
+const POSTS_PER_PAGE = 8
 
 export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
   const [query, setQuery] = useState('')
@@ -172,41 +173,11 @@ export default function PostsWithSearch({ posts }: { posts: PostMetadata[] }) {
       )}
 
     
-      {totalPages > 1 && (
-        <div className='mt-12 flex items-center justify-center gap-2'>
-          <Button
-            variant='outline'
-            size='sm'
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage(p => p - 1)}
-            className='h-8 w-8 p-0'
-          >
-            <ChevronLeft className='h-4 w-4' />
-          </Button>
-
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-            <Button
-              key={page}
-              variant={page === currentPage ? 'default' : 'outline'}
-              size='sm'
-              onClick={() => setCurrentPage(page)}
-              className='h-8 w-8 p-0 text-xs'
-            >
-              {page}
-            </Button>
-          ))}
-
-          <Button
-            variant='outline'
-            size='sm'
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage(p => p + 1)}
-            className='h-8 w-8 p-0'
-          >
-            <ChevronRight className='h-4 w-4' />
-          </Button>
-        </div>
-      )}
+      <Pagination 
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   )
 }

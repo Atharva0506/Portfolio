@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 interface AnimatedSectionProps {
@@ -15,6 +16,27 @@ export default function AnimatedSection({
   delay = 0,
   animation = 'fade-up'
 }: AnimatedSectionProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+          if (ref.current) observer.unobserve(ref.current)
+        }
+      },
+      { threshold: 0, rootMargin: '0px 0px -20px 0px' }
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   const animationClass = {
     'fade-up': 'animate-fade-up',
     'fade-in': 'animate-fade-in',
@@ -25,9 +47,10 @@ export default function AnimatedSection({
 
   return (
     <div
+      ref={ref}
       className={cn(
         'opacity-0',
-        animationClass,
+        isInView && animationClass,
         className
       )}
       style={{

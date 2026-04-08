@@ -37,24 +37,24 @@ export default function Home() {
           <Intro />
         </AnimatedSection>
 
-        <AnimatedSection delay={150} animation="fade-up">
+        <AnimatedSection delay={100} animation="fade-up">
           <Skills />
         </AnimatedSection>
         
-        <AnimatedSection delay={600} animation="fade-up">
+        <AnimatedSection delay={100} animation="fade-up">
           <RecentContributions />
         </AnimatedSection>
         
-        <AnimatedSection delay={300} animation="fade-up">
+        <AnimatedSection delay={100} animation="fade-up">
           <RecentPosts />
         </AnimatedSection>
 
-        <AnimatedSection delay={450} animation="fade-up">
+        <AnimatedSection delay={100} animation="fade-up">
           <RecentProjects />
         </AnimatedSection>
 
 
-        <AnimatedSection delay={750} animation="fade-up">
+        <AnimatedSection delay={100} animation="fade-up">
           <FAQSection items={faqItems} />
         </AnimatedSection>
       </div>

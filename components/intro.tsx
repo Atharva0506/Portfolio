@@ -15,7 +15,7 @@ export default function Intro() {
   return (
     <section className='flex flex-col-reverse items-start gap-x-10 gap-y-4 pb-24 md:flex-row md:items-center'>
       <div className='mt-2 flex-1 md:mt-0'>
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-600 dark:text-green-400">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 backdrop-blur-md shadow-sm dark:text-green-400">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
@@ -73,18 +73,23 @@ export default function Intro() {
         </div>
       </div>
 
-      {/* Hero image — clean, professional hover */}
-      <div className='relative'>
-        <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-zinc-200 via-transparent to-zinc-200/50 opacity-0 blur-sm transition-opacity duration-500 hover:opacity-100 dark:from-zinc-700 dark:to-zinc-700/50" />
-        <Image
-          className='relative rounded-lg transition-all duration-500 hover:shadow-lg hover:shadow-zinc-300/50 dark:hover:shadow-zinc-800/50'
-          src={authorImage}
-          alt='Atharva Naik — AI Full Stack Developer specializing in LangChain, FastAPI, and Next.js'
-          width={175}
-          height={175}
-          placeholder='blur'
-          priority
-        />
+      {/* Hero image — elegantly framed hover */}
+      <div className='relative mt-12 flex justify-center md:mt-0 md:justify-end'>
+        {/* Soft glow behind the image */}
+        <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-300 opacity-50 blur-2xl transition-opacity duration-500 hover:opacity-75 dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-800" />
+        
+        {/* Glassmorphic border container */}
+        <div className="relative rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/50">
+          <Image
+            className='rounded-2xl object-cover transition-all duration-500 hover:scale-[1.02] hover:shadow-lg dark:grayscale-[15%] dark:hover:grayscale-0'
+            src={authorImage}
+            alt='Atharva Naik — AI Full Stack Developer specializing in LangChain, FastAPI, and Next.js'
+            width={175}
+            height={175}
+            placeholder='blur'
+            priority
+          />
+        </div>
       </div>
     </section>
   )

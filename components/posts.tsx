@@ -7,8 +7,8 @@ import { formatDate } from '@/lib/utils'
 export default function Posts({ posts }: { posts: PostMetadata[] }) {
   return (
     <ul className='flex flex-col gap-8'>
-      {posts.map(post => (
-        <li key={post.slug} className='group'>
+      {posts.map((post, index) => (
+        <li key={post.slug} className='group opacity-0 animate-fade-up' style={{ animationDelay: `${index * 80}ms` }}>
           <Link
             href={`/posts/${post.slug}`}
             className='flex flex-col justify-between gap-x-4 gap-y-1 rounded-lg border-l-2 border-transparent p-4 -mx-4 transition-all duration-300 hover:border-blue-400 hover:bg-blue-50/40 hover:shadow-sm dark:hover:border-zinc-500 dark:hover:bg-zinc-900/50 dark:hover:shadow-none sm:flex-row'

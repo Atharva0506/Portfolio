@@ -65,9 +65,9 @@ export const metadata: Metadata = {
       'AI Full Stack Developer building production-ready LLM apps, FastAPI backends, and multi-agent AI systems.',
     images: [
       {
-        url: '/favicon.png',
-        width: 512,
-        height: 512,
+        url: '/images/authors/preview.jpeg',
+        width: 1200,
+        height: 630,
         alt: 'Atharva Naik Portfolio',
       },
     ],
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: 'Atharva Naik | AI Full Stack Developer',
     description:
       'AI Full Stack Developer building scalable LLM systems and modern web applications.',
-    images: ['/favicon.png'],
+    images: ['/images/authors/preview.jpeg'],
   },
 
   robots: {

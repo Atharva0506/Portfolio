@@ -349,14 +349,18 @@ export default function Contributions({
         <EmptyState />
       ) : viewMode === 'grid' ? (
         <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
-          {items.map((item) => (
-            <ContributionCard key={`${item.kind}-${item.id}`} item={item} />
+          {items.map((item, index) => (
+            <div key={`${item.kind}-${item.id}`} className="opacity-0 animate-fade-up" style={{ animationDelay: `${index * 120}ms` }}>
+              <ContributionCard item={item} />
+            </div>
           ))}
         </ul>
       ) : (
         <ul className='flex flex-col gap-6'>
-          {items.map((item) => (
-            <ContributionListItem key={`${item.kind}-list-${item.id}`} item={item} />
+          {items.map((item, index) => (
+            <div key={`${item.kind}-list-${item.id}`} className="opacity-0 animate-fade-up" style={{ animationDelay: `${index * 80}ms` }}>
+              <ContributionListItem item={item} />
+            </div>
           ))}
         </ul>
       )}

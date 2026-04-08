@@ -16,10 +16,8 @@ export default function Projects({
     <CarouselProvider interval={4000}>
       <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
       {projects.map((project, index) => (
-        <MouseGlowCard
-          key={project.id}
-          className='group relative overflow-hidden rounded-2xl border border-zinc-200/60 bg-white/50 transition-all duration-500 hover:border-zinc-300 hover:shadow-xl hover:shadow-zinc-200/40 hover:-translate-y-1.5 dark:border-zinc-800/60 dark:bg-zinc-900/30 dark:hover:border-zinc-700 dark:hover:shadow-zinc-900/50'
-        >
+        <div key={project.id} className="opacity-0 animate-fade-up" style={{ animationDelay: `${index * 150}ms` }}>
+          <MouseGlowCard className='group relative h-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white/50 transition-all duration-500 hover:border-zinc-300 hover:shadow-xl hover:shadow-zinc-200/40 hover:-translate-y-1.5 dark:border-zinc-800/60 dark:bg-zinc-900/30 dark:hover:border-zinc-700 dark:hover:shadow-zinc-900/50'>
           <li className='flex h-full flex-col'>
             {/* Project Image Carousel */}
             <div className='relative aspect-[16/9] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800/50'>
@@ -82,7 +80,8 @@ export default function Projects({
               </div>
             </div>
           </li>
-        </MouseGlowCard>
+          </MouseGlowCard>
+        </div>
       ))}
     </ul>
     </CarouselProvider>

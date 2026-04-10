@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: 'Projects',
   description: 'Explore AI-powered projects including conversational AI companions, news aggregation platforms, and developer tools built by Atharva Naik.',
   keywords: [
-    'AI projects portfolio',
-    'conversational AI projects',
-    'RAG applications',
-    'LangChain projects',
-    'FastAPI projects',
-    'Next.js portfolio projects',
-    'AI developer portfolio'
+    'AI engineering portfolio projects',
+    'LangGraph project examples',
+    'RAG project case studies',
+    'FastAPI and Next.js projects',
+    'multi-agent AI application examples',
+    'LLM app architecture projects',
+    'AI developer portfolio projects'
   ],
   openGraph: {
     title: 'Projects | Atharva Naik',

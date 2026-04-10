@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   description:
     'Track Atharva Naik\'s open-source activity, including merged pull requests, open pull requests, and issues across external repositories.',
   keywords: [
-    'GitHub contributions',
-    'open source pull requests',
-    'merged PRs',
-    'GitHub issues',
-    'Atharva Naik GitHub',
+    'open source contributions by Atharva Naik',
+    'GitHub pull requests portfolio',
+    'merged pull requests in open source',
+    'developer open source activity',
+    'GitHub engineering contributions',
   ],
   openGraph: {
     title: 'GitHub Contributions | Atharva Naik',

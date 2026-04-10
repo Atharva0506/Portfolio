@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: 'Blog Posts',
   description: 'Read articles about AI development, FastAPI, LangChain, Next.js, and software engineering best practices by Atharva Naik.',
   keywords: [
-    'AI development blog',
-    'FastAPI tutorials',
-    'LangChain guides',
-    'Next.js best practices',
-    'software engineering articles',
-    'Python backend development',
-    'LLM application tutorials'
+    'AI engineering blog',
+    'LangChain and LangGraph tutorials',
+    'FastAPI and Python backend tutorials',
+    'Next.js AI app guides',
+    'RAG architecture articles',
+    'LLM system design blog',
+    'software engineering deep dives'
   ],
   openGraph: {
     title: 'Blog Posts | Atharva Naik',

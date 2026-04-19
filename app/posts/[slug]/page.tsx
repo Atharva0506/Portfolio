@@ -253,6 +253,20 @@ export default async function Post({ params }: { params: { slug: string } }) {
                   brief snippets, but please do not republish the full content
                   without explicit permission.
                 </p>
+                <div className='mt-4 flex gap-4 text-xs font-medium'>
+                  <Link
+                    href='/terms'
+                    className='underline decoration-muted-foreground/50 underline-offset-4 hover:text-foreground'
+                  >
+                    Terms of Use
+                  </Link>
+                  <Link
+                    href='/privacy-policy'
+                    className='underline decoration-muted-foreground/50 underline-offset-4 hover:text-foreground'
+                  >
+                    Privacy Policy
+                  </Link>
+                </div>
               </div>
 
               <RelatedPosts posts={relatedPostsData} />

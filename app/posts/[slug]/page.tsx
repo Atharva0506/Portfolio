@@ -14,6 +14,7 @@ import Breadcrumbs from '@/components/breadcrumbs'
 import RelatedPosts from '@/components/related-posts'
 import TableOfContents, { Heading } from '@/components/table-of-contents'
 import ReadingProgress from '@/components/reading-progress'
+import ShareButtons from '@/components/share-buttons'
 
 const baseUrl = 'https://atharvanaik.me'
 
@@ -239,6 +240,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
               <main className='prose mt-16 dark:prose-invert'>
                 <MDXContent source={content} />
               </main>
+
+              <div className='mt-12'>
+                <ShareButtons
+                  url={`${baseUrl}/posts/${slug}`}
+                  title={title || ''}
+                />
+              </div>
 
               {/* Copyright & Content Policy */}
               <div className='mt-16 rounded-lg border border-zinc-200/60 bg-zinc-50/50 p-6 text-sm text-muted-foreground dark:border-zinc-800/60 dark:bg-zinc-900/50'>

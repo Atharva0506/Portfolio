@@ -240,6 +240,21 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 <MDXContent source={content} />
               </main>
 
+              {/* Copyright & Content Policy */}
+              <div className='mt-16 rounded-lg border border-zinc-200/60 bg-zinc-50/50 p-6 text-sm text-muted-foreground dark:border-zinc-800/60 dark:bg-zinc-900/50'>
+                <p>
+                  <strong>
+                    &copy; {new Date().getFullYear()} Atharva Naik. All rights
+                    reserved.
+                  </strong>
+                  <br />
+                  The content on this blog is written for informational and
+                  educational purposes. You may link to this article or quote
+                  brief snippets, but please do not republish the full content
+                  without explicit permission.
+                </p>
+              </div>
+
               <RelatedPosts posts={relatedPostsData} />
             </div>
 

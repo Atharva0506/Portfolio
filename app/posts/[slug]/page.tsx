@@ -131,6 +131,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
     author: {
       '@type': 'Person',
       name: author || 'Atharva Naik',
+      jobTitle: 'Software Engineer',
       url: baseUrl
     },
     publisher: {

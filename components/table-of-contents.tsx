@@ -97,7 +97,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
                   href={`#${group.slug}`}
                   onClick={e => {
                     e.preventDefault()
-                    document.querySelector(`#${group.slug}`)?.scrollIntoView({
+                    document.getElementById(group.slug)?.scrollIntoView({
                       behavior: 'smooth'
                     })
                   }}
@@ -132,11 +132,9 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
                         href={`#${child.slug}`}
                         onClick={e => {
                           e.preventDefault()
-                          document
-                            .querySelector(`#${child.slug}`)
-                            ?.scrollIntoView({
-                              behavior: 'smooth'
-                            })
+                          document.getElementById(child.slug)?.scrollIntoView({
+                            behavior: 'smooth'
+                          })
                         }}
                         className={cn(
                           'line-clamp-2 block text-muted-foreground transition-colors hover:text-foreground',

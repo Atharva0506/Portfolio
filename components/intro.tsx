@@ -2,15 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import authorImage from '@/public/images/authors/atharva.jpg'
 import { BootUbuntuButton } from '@/components/UbuntuPortfolioIntroduction'
-import TypingAnimation from '@/components/typing-animation'
-
-const subtitlePhrases = [
-  'Building multi-agent AI systems',
-  'Shipping production-ready LLM apps',
-  'Designing scalable FastAPI backends',
-  'Crafting full stack AI experiences',
-  'Engineering RAG pipelines & AI workflows'
-]
 
 export default function Intro() {
   return (
@@ -24,15 +15,10 @@ export default function Intro() {
           Open to Work — Full-Time &amp; Freelance
         </div>
 
-        <h1 className='title no-underline'>Atharva Naik — Developer</h1>
+        <h1 className='title no-underline'>Atharva Naik</h1>
 
-        <p className='mt-3 h-7 text-base font-medium text-muted-foreground'>
-          <TypingAnimation
-            phrases={subtitlePhrases}
-            typingSpeed={70}
-            deletingSpeed={35}
-            pauseDuration={3500}
-          />
+        <p className='mt-3 text-base font-medium text-muted-foreground'>
+          I build AI agents that don&apos;t just chat — they work.
         </p>
 
         <p className='mt-4 font-light leading-relaxed text-muted-foreground'>
@@ -45,8 +31,8 @@ export default function Intro() {
 
         <div className='mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground'>
           <span>📍 Pune, India</span>
-          <span>🔧 3+ AI apps shipped</span>
-          <span>⚡ Built RAG systems, multi-agent pipelines</span>
+          <span>🏢 RAG tool at TCS · 35% faster dev lookups</span>
+          <span>⚡ LangGraph pipelines · on-chain payments</span>
         </div>
 
         {/* CTA Buttons — premium styling with subtle borders and glow */}
@@ -59,20 +45,19 @@ export default function Intro() {
             <span className='absolute inset-0 translate-x-[-200%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-[200%] dark:via-black/10' />
             <span className='relative'>Book a Call</span>
           </Link>
+          {/* Resume: add your PDF at /public/resume.pdf — direct serve, no Google Drive friction */}
           <Link
-            href='https://drive.google.com/file/d/1AiKcpCz7bDBYmVkjDBY5dkjZeJWCp_aV/view?usp=sharing'
+            href='/resume.pdf'
             target='_blank'
             rel='noopener noreferrer'
             className='relative inline-flex items-center justify-center rounded-lg border border-zinc-200/80 bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-md hover:shadow-zinc-200/40 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 active:scale-[0.98] dark:border-zinc-700/80 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:border-zinc-600 dark:hover:bg-zinc-900 dark:hover:shadow-zinc-900/40 dark:focus:ring-zinc-600 dark:focus:ring-offset-black'
           >
             View Resume
           </Link>
-
-          <div className='hidden md:block'>
-            <BootUbuntuButton />
-          </div>
         </div>
-        <div className='mt-4 md:hidden'>
+
+        {/* Secondary CTA — Ubuntu easter egg, demoted below primary actions */}
+        <div className='mt-4'>
           <BootUbuntuButton />
         </div>
       </div>

@@ -38,18 +38,6 @@ export const projects: Project[] = [
         liveUrl: 'https://nakama-taupe.vercel.app/',
     },
     {
-        id: 'blog-platform',
-        name: 'Blog Platform',
-        description: 'A full-featured blog platform supporting user authentication, blog creation, editing, deletion, and secure access control. Designed for scalability and clean content management.',
-        techStack: ['React', 'Node.js', 'MongoDB', 'JWT', 'Tailwind CSS'],
-        images: [
-            '/images/projects/blog-app/blog-app-1.png',
-            '/images/projects/blog-app/blog-app-2.png',
-        ],
-        githubUrl: 'https://github.com/Atharva0506/Blog-Platform',
-        liveUrl: null,
-    },
-    {
         id: 'vscode-ai-assistant',
         name: 'VS Code AI Assistant (Internal)',
         description: 'An internal RAG assistant built for Tata Consultancy Services to support developer documentation and debugging. Reduced debugging and information lookup time by 35%.',
@@ -63,7 +51,7 @@ export const projects: Project[] = [
     },
 ]
 
-import { Bot, Server, Layout, Cloud, Cpu, LucideIcon } from 'lucide-react'
+import { Bot, Server, Layout, Cloud, LucideIcon } from 'lucide-react'
 
 export type SkillItem = {
     name: string
@@ -112,25 +100,11 @@ export const skills: Record<string, SkillCategory> = {
     'Infrastructure & DevOps': {
         items: [
             { name: 'Docker', level: 'intermediate' },
-            { name: 'AWS', level: 'beginner' },
             { name: 'CI/CD (GitHub Actions)', level: 'intermediate' },
             { name: 'PostgreSQL / MongoDB', level: 'intermediate' },
             { name: 'Git & GitHub', level: 'advanced' },
         ],
         highlight: true,
         icon: Cloud,
-    },
-    'Blockchain & Web3': {
-        items: [
-            { name: 'Solidity', level: 'beginner' },
-            { name: 'Ethereum', level: 'beginner' },
-            { name: 'Solana', level: 'beginner' },
-            { name: 'Smart Contracts', level: 'beginner' },
-            { name: 'Web3.js / Ethers.js', level: 'intermediate' },
-            { name: 'Hardhat / Foundry', level: 'beginner' },
-            { name: 'MetaMask & Wallets', level: 'intermediate' },
-        ],
-        highlight: true,
-        icon: Cpu,
     },
 }

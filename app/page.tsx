@@ -37,6 +37,28 @@ export default function Home() {
           <Intro />
         </AnimatedSection>
 
+        <AnimatedSection delay={75} animation="fade-up">
+          <section className='pb-16'>
+            <h2 className='title mb-4'>About</h2>
+            <div className='space-y-3 font-light leading-relaxed text-muted-foreground'>
+              <p>
+                For the past two years I&apos;ve been obsessed with one question: how do you make AI
+                agents that actually <em>complete</em> complex workflows instead of hallucinating
+                halfway through? That obsession led me to build a{' '}
+                <strong>4-stage LangGraph pipeline</strong> — Collector → Classifier → Summarizer →
+                Bias Analyzer — that streams live analysis to users via SSE, and an{' '}
+                <strong>internal RAG assistant deployed at TCS</strong> that engineers now rely on
+                daily to search documentation, cutting lookup time by 35%.
+              </p>
+              <p>
+                My edge is the full vertical: I design the agent architecture, wire the FastAPI
+                backend, build the Next.js frontend, and ship it — including payment gating with
+                Solana. I don&apos;t hand off half-built systems.
+              </p>
+            </div>
+          </section>
+        </AnimatedSection>
+
         <AnimatedSection delay={100} animation="fade-up">
           <Skills />
         </AnimatedSection>

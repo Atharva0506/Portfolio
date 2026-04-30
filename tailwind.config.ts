@@ -95,6 +95,10 @@ const config = {
         'scale-in': {
           from: { opacity: '0', transform: 'scale(0.95)' },
           to: { opacity: '1', transform: 'scale(1)' }
+        },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-50% - 1rem))' }
         }
       },
       animation: {
@@ -104,7 +108,8 @@ const config = {
         'fade-up': 'fade-up 0.6s ease-out forwards',
         'fade-down': 'fade-down 0.6s ease-out forwards',
         'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
-        'scale-in': 'scale-in 0.4s ease-out forwards'
+        'scale-in': 'scale-in 0.4s ease-out forwards',
+        marquee: 'marquee 40s linear infinite'
       }
     }
   },

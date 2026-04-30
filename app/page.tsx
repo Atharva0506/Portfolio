@@ -1,5 +1,5 @@
 import Intro from '@/components/intro'
-import SocialProof from '@/components/social-proof'
+import Timeline from '@/components/timeline'
 import Skills from '@/components/skills'
 import RecentPosts from '@/components/recent-posts'
 import RecentProjects from '@/components/recent-projects'
@@ -44,7 +44,7 @@ export default function Home() {
         </AnimatedSection>
 
         <AnimatedSection delay={50} animation='fade-up'>
-          <SocialProof />
+          <Timeline />
         </AnimatedSection>
 
         <AnimatedSection delay={100} animation='fade-up'>

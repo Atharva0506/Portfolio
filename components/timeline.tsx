@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useSpring } from 'framer-motion'
+import React, { useRef, useEffect, useState, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Building2, Code2, GraduationCap, Bot, Briefcase } from 'lucide-react'
 import Link from 'next/link'
 
@@ -117,6 +117,10 @@ const colorMap = {
   }
 }
 
+// Easing function for smooth manual animation
+const easeInOutQuad = (t: number) =>
+  t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+
 export default function Timeline() {
   const sectionRef = useRef<HTMLElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -128,15 +132,38 @@ export default function Timeline() {
   const [showTooltip, setShowTooltip] = useState(false)
   const [cardHeight, setCardHeight] = useState<number | 'auto'>('auto')
 
-  const { scrollXProgress } = useScroll({ container: scrollRef })
-  const scaleX = useSpring(scrollXProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
+  // Smooth custom scroll animation function
+  const animateScroll = useCallback(
+    (targetLeft: number, duration: number, callback?: () => void) => {
+      const el = scrollRef.current
+      if (!el) return
 
-  // 4. EQUAL CARD HEIGHTS
+      const startLeft = el.scrollLeft
+      const distance = targetLeft - startLeft
+      let startTime: number | null = null
+
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp
+        const progress = Math.min((timestamp - startTime) / duration, 1)
+        const easeProgress = easeInOutQuad(progress)
+
+        el.scrollLeft = startLeft + distance * easeProgress
+
+        if (progress < 1) {
+          requestAnimationFrame(step)
+        } else {
+          if (callback) callback()
+        }
+      }
+
+      requestAnimationFrame(step)
+    },
+    []
+  )
+
+  // 4. EQUAL CARD HEIGHTS (with debounce)
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout
     const calculateHeights = () => {
       if (!scrollRef.current) return
       const cards = scrollRef.current.querySelectorAll('article')
@@ -148,20 +175,28 @@ export default function Timeline() {
       })
 
       cards.forEach(card => {
-        if (card.offsetHeight > max) {
-          max = card.offsetHeight
+        if (card.scrollHeight > max) {
+          max = card.scrollHeight
         }
       })
       setCardHeight(max)
     }
 
+    const handleResize = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(calculateHeights, 150)
+    }
+
     calculateHeights()
-    window.addEventListener('resize', calculateHeights)
+    window.addEventListener('resize', handleResize)
 
     // Slight delay to ensure content is fully painted
     setTimeout(calculateHeights, 100)
 
-    return () => window.removeEventListener('resize', calculateHeights)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      clearTimeout(timeoutId)
+    }
   }, [])
 
   // 1. AUTO-SCROLL HINT on page load
@@ -202,9 +237,9 @@ export default function Timeline() {
 
     observer.observe(section)
     return () => observer.disconnect()
-  }, [])
+  }, [animateScroll])
 
-  // 6. ACTIVE DOT ON SCROLL via IntersectionObserver
+  // 1 & 6. ACTIVE TICK ON SCROLL via IntersectionObserver
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
@@ -212,6 +247,7 @@ export default function Timeline() {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
+          // Threshold 0.5 means card is 50% visible.
           if (entry.isIntersecting) {
             const index = Number(entry.target.getAttribute('data-index'))
             setActiveCardIndex(index)
@@ -220,7 +256,7 @@ export default function Timeline() {
       },
       {
         root: el,
-        threshold: 0.6 // Card must be 60% visible to activate
+        threshold: 0.5
       }
     )
 
@@ -272,7 +308,7 @@ export default function Timeline() {
     scrollRef.current.scrollLeft = scrollLeftState - walk
   }
 
-  // 3. DOT NAVIGATION FIX
+  // 3. DOT NAVIGATION FIX (Precise scroll)
   const scrollToCard = (index: number) => {
     const el = scrollRef.current
     if (!el) return
@@ -282,7 +318,6 @@ export default function Timeline() {
       const firstCard = cards[0] as HTMLElement
       const targetCard = cards[index] as HTMLElement
 
-      // Calculate exact left offset by subtracting the container's starting padding
       const paddingLeft = firstCard.offsetLeft
       const targetLeft = targetCard.offsetLeft - paddingLeft
 
@@ -291,6 +326,8 @@ export default function Timeline() {
   }
 
   const activeColorHex = colorMap[timelineData[activeCardIndex].accent].hex
+  const currentActiveYear =
+    timelineData[activeCardIndex].date.match(/\d{4}/)?.[0] || '2023'
 
   return (
     <section
@@ -312,8 +349,22 @@ export default function Timeline() {
       <div className='relative mb-12 flex w-full items-end justify-between px-4 md:px-12'>
         <h2 className='title m-0 text-left'>Journey & Experience</h2>
 
-        <div className='font-mono text-sm tracking-widest text-zinc-400 dark:text-zinc-500'>
-          0{activeCardIndex + 1} / 0{timelineData.length}
+        {/* 4 & 7. SMOOTH COUNTER TRANSITION */}
+        <div className='flex h-6 items-center overflow-hidden font-mono text-sm tracking-widest text-zinc-400 dark:text-zinc-500'>
+          <AnimatePresence mode='popLayout'>
+            <motion.span
+              key={activeCardIndex}
+              initial={{ y: 8, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -8, opacity: 0 }}
+              transition={{ duration: 0.15, ease: 'easeOut' }}
+              className='inline-block'
+            >
+              0{activeCardIndex + 1}
+            </motion.span>
+          </AnimatePresence>
+          <span className='mx-1'>/</span>
+          <span>0{timelineData.length}</span>
         </div>
 
         {/* 7. DRAG TOOLTIP */}
@@ -428,49 +479,57 @@ export default function Timeline() {
       </div>
 
       <div className='mx-auto mt-2 max-w-4xl px-4 md:px-12'>
-        {/* 5. SLEEK NAVIGATOR (TICK MARKS & AXIS) */}
-        <div className='relative mb-8 flex w-full items-end justify-between'>
-          <div className='absolute bottom-[14px] left-0 right-0 h-[1px] bg-black/10 dark:bg-white/10' />
+        {/* 2 & 5. DEDUPLICATE TIMELINE AXIS & SLEEK NAVIGATOR */}
+        <div className='relative flex w-full items-start justify-between pb-8'>
+          {/* Hairline connecting ticks */}
+          <div className='absolute left-0 right-0 top-[14px] h-[1px] bg-black/10 dark:bg-white/10' />
 
           {timelineData.map((item, index) => {
             const isActive = index === activeCardIndex
             const yearLabel = item.date.match(/\d{4}/)?.[0] || '2023'
+
+            // 2. Map one tick per card, but label year only when it changes
+            const prevYearLabel =
+              index > 0
+                ? timelineData[index - 1].date.match(/\d{4}/)?.[0] || '2023'
+                : null
+            const showYear = index === 0 || yearLabel !== prevYearLabel
+            const isYearActive = currentActiveYear === yearLabel
 
             return (
               <button
                 key={`tick-${item.id}`}
                 onClick={() => scrollToCard(index)}
                 className='group relative flex flex-col items-center focus:outline-none'
-                aria-label={`Scroll to ${yearLabel}`}
+                aria-label={`Scroll to card ${index + 1}`}
               >
+                {/* TICK */}
                 <div
                   className={`z-10 w-[2px] transition-all duration-300 ease-out`}
                   style={{
                     backgroundColor: isActive
                       ? activeColorHex
                       : 'var(--fallback-bg, rgba(150,150,150,0.3))',
-                    height: isActive ? '32px' : '20px'
+                    height: isActive ? '36px' : '28px',
+                    // Vertically center the tick on the 14px hairline.
+                    // If it's 28px tall, top should be 0. If it's 36px tall, top should be -4px.
+                    transform: isActive ? 'translateY(-4px)' : 'translateY(0)'
                   }}
                 />
-                <span
-                  className={`mt-3 font-mono text-[11px] transition-colors duration-300 ${isActive ? 'font-bold text-zinc-900 dark:text-zinc-100' : 'text-zinc-500'}`}
-                >
-                  {yearLabel}
-                </span>
+                {/* 6. TICK LABEL ALIGNMENT */}
+                {showYear && (
+                  <span
+                    className={`absolute top-10 mt-1 whitespace-nowrap font-mono text-[11px] transition-colors duration-300 ${isYearActive ? 'font-bold' : 'text-zinc-500 opacity-35'}`}
+                    style={{
+                      color: isYearActive ? colorMap[item.accent].hex : ''
+                    }}
+                  >
+                    {yearLabel}
+                  </span>
+                )}
               </button>
             )
           })}
-        </div>
-
-        {/* PROGRESS BAR */}
-        <div className='h-[2px] w-full overflow-hidden rounded-full bg-black/5 dark:bg-white/5'>
-          <motion.div
-            className='h-full origin-left transition-colors duration-300 ease-out'
-            style={{
-              scaleX,
-              backgroundColor: activeColorHex
-            }}
-          />
         </div>
       </div>
     </section>

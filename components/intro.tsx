@@ -5,11 +5,11 @@ import { BootUbuntuButton } from '@/components/UbuntuPortfolioIntroduction'
 import TypingAnimation from '@/components/typing-animation'
 
 const subtitlePhrases = [
-  'Building multi-agent AI systems',
-  'Shipping production-ready LLM apps',
-  'Designing scalable FastAPI backends',
-  'Crafting full stack AI experiences',
-  'Engineering RAG pipelines & AI workflows'
+  'Multi-agent LLM pipelines → production',
+  'Solana payments in AI products',
+  'FastAPI backends processing 500+ articles/day',
+  'RAG systems with persistent memory',
+  'From autonomous reasoning to autonomous revenue'
 ]
 
 export default function Intro() {
@@ -24,7 +24,9 @@ export default function Intro() {
           Open to Work — Full-Time &amp; Freelance
         </div>
 
-        <h1 className='title no-underline'>Atharva Naik — Developer</h1>
+        <h1 className='title no-underline'>
+          I Build AI Agents That Handle Money
+        </h1>
 
         <p className='mt-3 h-7 text-base font-medium text-muted-foreground'>
           <TypingAnimation
@@ -36,17 +38,17 @@ export default function Intro() {
         </p>
 
         <p className='mt-4 font-light leading-relaxed text-muted-foreground'>
-          I build <strong>AI-powered applications</strong> — from multi-agent
-          LLM pipelines to production-ready full stack systems. My core stack
-          bridges{' '}
-          <strong>Python, FastAPI, LangChain, Next.js, and Cloud</strong> to
-          ship scalable software that solves real problems.
+          I combine <strong>LangGraph multi-agent orchestration</strong>,{' '}
+          <strong>Solana blockchain payments</strong>, and{' '}
+          <strong>FastAPI backends</strong> to build AI products that don&apos;t
+          just think — they transact. Currently shipping production systems with
+          real-time SSE streaming and crypto-native monetization.
         </p>
 
         <div className='mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground'>
           <span>📍 Pune, India</span>
-          <span>🔧 3+ AI apps shipped</span>
-          <span>⚡ Built RAG systems, multi-agent pipelines</span>
+          <span>🔧 Built at TCS · OSS @ StabilityNexus</span>
+          <span>⚡ 4-agent pipelines · 500+ articles/day</span>
         </div>
 
         {/* CTA Buttons — premium styling with subtle borders and glow */}

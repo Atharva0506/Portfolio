@@ -346,7 +346,7 @@ export default function Timeline() {
         }
       `}</style>
 
-      <div className='relative mb-12 flex w-full items-end justify-between px-4 md:px-12'>
+      <div className='relative mb-12 flex w-full items-end justify-between'>
         <h2 className='title m-0 text-left'>Journey & Experience</h2>
 
         {/* 4 & 7. SMOOTH COUNTER TRANSITION */}
@@ -478,7 +478,7 @@ export default function Timeline() {
         </div>
       </div>
 
-      <div className='mx-auto mt-2 max-w-4xl px-4 md:px-12'>
+      <div className='mx-auto mt-2 max-w-4xl'>
         {/* 2 & 5. DEDUPLICATE TIMELINE AXIS & SLEEK NAVIGATOR */}
         <div className='relative flex w-full items-start justify-between pb-8'>
           {/* Hairline connecting ticks */}

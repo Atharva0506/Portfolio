@@ -59,7 +59,7 @@ export default function Intro() {
             className='group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-zinc-900/20 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 active:scale-[0.98] dark:bg-zinc-50 dark:text-zinc-900 dark:hover:shadow-zinc-50/10 dark:focus:ring-zinc-100 dark:focus:ring-offset-black'
           >
             <span className='absolute inset-0 translate-x-[-200%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-[200%] dark:via-black/10' />
-            <span className='relative'>Book a Call</span>
+            <span className='relative'>Get in Touch</span>
           </Link>
           <Link
             href='https://drive.google.com/file/d/1AiKcpCz7bDBYmVkjDBY5dkjZeJWCp_aV/view?usp=sharing'

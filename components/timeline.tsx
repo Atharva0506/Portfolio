@@ -10,6 +10,34 @@ type AccentColor = 'emerald' | 'amber' | 'violet' | 'blue'
 // Sorted by start date, newest first (descending)
 const timelineData = [
   {
+    id: 1,
+    title: 'Open Source Contributor',
+    company: 'AOSSIE / StabilityNexus',
+    date: 'Mar 2026 – Present',
+    icon: <Code2 className='h-5 w-5 text-[#10B981]' />,
+    accent: 'emerald' as AccentColor,
+    description:
+      'Contributed to decentralized applications like Chainvoice. Merged multiple PRs and worked on backend + blockchain integrations. Researched Lit Protocol implementation for decentralized authentication.',
+    links: [
+      {
+        label: 'VouchMe PR #35',
+        url: 'https://github.com/StabilityNexus/VouchMe/pull/35'
+      },
+      {
+        label: 'Chainvoice PR #146',
+        url: 'https://github.com/StabilityNexus/Chainvoice/pull/146'
+      },
+      {
+        label: 'Chainvoice PR #138',
+        url: 'https://github.com/StabilityNexus/Chainvoice/pull/138'
+      },
+      {
+        label: 'Chainvoice Issue #139',
+        url: 'https://github.com/StabilityNexus/Chainvoice/issues/139'
+      }
+    ]
+  },
+  {
     id: 2,
     title: 'Fullstack Engineer — AI Platform',
     company: 'Tata Consultancy Services',
@@ -47,34 +75,6 @@ const timelineData = [
     accent: 'amber' as AccentColor,
     description:
       'Built AI-powered industrial systems including forecasting, defect detection, and analytics dashboards.'
-  },
-  {
-    id: 1,
-    title: 'Open Source Contributor',
-    company: 'AOSSIE / StabilityNexus',
-    date: 'Mar 2023 – Present',
-    icon: <Code2 className='h-5 w-5 text-[#10B981]' />,
-    accent: 'emerald' as AccentColor,
-    description:
-      'Contributed to decentralized applications like Chainvoice. Merged multiple PRs and worked on backend + blockchain integrations. Researched Lit Protocol implementation for decentralized authentication.',
-    links: [
-      {
-        label: 'VouchMe PR #35',
-        url: 'https://github.com/StabilityNexus/VouchMe/pull/35'
-      },
-      {
-        label: 'Chainvoice PR #146',
-        url: 'https://github.com/StabilityNexus/Chainvoice/pull/146'
-      },
-      {
-        label: 'Chainvoice PR #138',
-        url: 'https://github.com/StabilityNexus/Chainvoice/pull/138'
-      },
-      {
-        label: 'Chainvoice Issue #139',
-        url: 'https://github.com/StabilityNexus/Chainvoice/issues/139'
-      }
-    ]
   }
 ]
 

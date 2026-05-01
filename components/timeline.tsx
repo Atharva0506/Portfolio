@@ -2,7 +2,15 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Building2, Code2, GraduationCap, Bot, Briefcase } from 'lucide-react'
+import {
+  Building2,
+  Code2,
+  GraduationCap,
+  Bot,
+  Briefcase,
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react'
 import Link from 'next/link'
 
 type AccentColor = 'emerald' | 'amber' | 'violet' | 'blue'
@@ -239,56 +247,41 @@ export default function Timeline() {
     return () => observer.disconnect()
   }, [animateScroll])
 
-  // 1 & 6. ACTIVE TICK ON SCROLL via IntersectionObserver
-  useEffect(() => {
+  // 1 & 6. ACTIVE TICK ON SCROLL
+  const handleScroll = useCallback(() => {
+    if (!scrollRef.current) return
     const el = scrollRef.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          // Threshold 0.5 means card is 50% visible.
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute('data-index'))
-            setActiveCardIndex(index)
-          }
-        })
-      },
-      {
-        root: el,
-        threshold: 0.5
-      }
-    )
-
     const cards = el.querySelectorAll('article')
-    cards.forEach(card => observer.observe(card))
 
-    return () => observer.disconnect()
+    // Determine the active card based on which card's left edge is closest to the container's left padding
+    const containerLeft = el.getBoundingClientRect().left
+    const offset = containerLeft + 60 // Roughly accounts for the 48px/24px padding-left on the container
+
+    let closestIndex = 0
+    let minDistance = Infinity
+
+    cards.forEach((card, index) => {
+      const cardLeft = card.getBoundingClientRect().left
+      const distance = Math.abs(cardLeft - offset)
+      if (distance < minDistance) {
+        minDistance = distance
+        closestIndex = index
+      }
+    })
+
+    setActiveCardIndex(closestIndex)
   }, [])
 
-  // Mouse Wheel to Horizontal Scroll
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
 
-    const onWheel = (e: WheelEvent) => {
-      if (e.deltaY === 0) return
+    el.addEventListener('scroll', handleScroll, { passive: true })
+    // Initial check to set the first active card correctly
+    setTimeout(handleScroll, 100)
 
-      const { scrollLeft, scrollWidth, clientWidth } = el
-      const maxScroll = scrollWidth - clientWidth
-
-      if (
-        (e.deltaY > 0 && scrollLeft < maxScroll - 1) ||
-        (e.deltaY < 0 && scrollLeft > 1)
-      ) {
-        e.preventDefault()
-        el.scrollLeft += e.deltaY
-      }
-    }
-
-    el.addEventListener('wheel', onWheel, { passive: false })
-    return () => el.removeEventListener('wheel', onWheel)
-  }, [])
+    return () => el.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return
@@ -349,22 +342,46 @@ export default function Timeline() {
       <div className='relative mb-12 flex w-full items-end justify-between'>
         <h2 className='title m-0 text-left'>Journey & Experience</h2>
 
-        {/* 4 & 7. SMOOTH COUNTER TRANSITION */}
-        <div className='flex h-6 items-center overflow-hidden font-mono text-sm tracking-widest text-zinc-400 dark:text-zinc-500'>
-          <AnimatePresence mode='popLayout'>
-            <motion.span
-              key={activeCardIndex}
-              initial={{ y: 8, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -8, opacity: 0 }}
-              transition={{ duration: 0.15, ease: 'easeOut' }}
-              className='inline-block'
+        {/* 4 & 7. SMOOTH COUNTER TRANSITION & NAVIGATOR ARROWS */}
+        <div className='flex items-center gap-4'>
+          <div className='hidden items-center gap-2 md:flex'>
+            <button
+              onClick={() => scrollToCard(Math.max(0, activeCardIndex - 1))}
+              className='flex h-8 w-8 items-center justify-center rounded-full border border-black/10 transition-colors hover:bg-black/5 disabled:opacity-30 dark:border-white/10 dark:hover:bg-white/5'
+              aria-label='Previous card'
+              disabled={activeCardIndex === 0}
             >
-              0{activeCardIndex + 1}
-            </motion.span>
-          </AnimatePresence>
-          <span className='mx-1'>/</span>
-          <span>0{timelineData.length}</span>
+              <ChevronLeft className='h-4 w-4 opacity-70' />
+            </button>
+            <button
+              onClick={() =>
+                scrollToCard(
+                  Math.min(timelineData.length - 1, activeCardIndex + 1)
+                )
+              }
+              className='flex h-8 w-8 items-center justify-center rounded-full border border-black/10 transition-colors hover:bg-black/5 disabled:opacity-30 dark:border-white/10 dark:hover:bg-white/5'
+              aria-label='Next card'
+              disabled={activeCardIndex === timelineData.length - 1}
+            >
+              <ChevronRight className='h-4 w-4 opacity-70' />
+            </button>
+          </div>
+          <div className='flex h-6 items-center overflow-hidden font-mono text-sm tracking-widest text-zinc-400 dark:text-zinc-500'>
+            <AnimatePresence mode='popLayout'>
+              <motion.span
+                key={activeCardIndex}
+                initial={{ y: 8, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -8, opacity: 0 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className='inline-block'
+              >
+                0{activeCardIndex + 1}
+              </motion.span>
+            </AnimatePresence>
+            <span className='mx-1'>/</span>
+            <span>0{timelineData.length}</span>
+          </div>
         </div>
 
         {/* 7. DRAG TOOLTIP */}

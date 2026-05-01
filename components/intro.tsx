@@ -5,6 +5,7 @@ import { BootUbuntuButton } from '@/components/UbuntuPortfolioIntroduction'
 import TypingAnimation from '@/components/typing-animation'
 
 const subtitlePhrases = [
+  "GSoC '26 @ AOSSIE",
   'Multi-agent LLM pipelines → production',
   'Solana payments in AI products',
   'FastAPI backends processing 500+ articles/day',
@@ -47,7 +48,7 @@ export default function Intro() {
 
         <div className='mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground'>
           <span>📍 Pune, India</span>
-          <span>🔧 Built at TCS · OSS @ StabilityNexus</span>
+          <span>🏆 GSoC &apos;26 @ AOSSIE</span>
           <span>⚡ 4-agent pipelines · 500+ articles/day</span>
         </div>
 

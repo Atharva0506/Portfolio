@@ -19,29 +19,17 @@ type AccentColor = 'emerald' | 'amber' | 'violet' | 'blue'
 const timelineData = [
   {
     id: 1,
-    title: 'Open Source Contributor',
+    title: "GSoC '26 Developer",
     company: 'AOSSIE / StabilityNexus',
-    date: 'Mar 2026 – Present',
+    date: 'May 2026 – Aug 2026',
     icon: <Code2 className='h-5 w-5 text-[#10B981]' />,
     accent: 'emerald' as AccentColor,
     description:
-      'Contributed to decentralized applications like Chainvoice. Merged multiple PRs and worked on backend + blockchain integrations. Researched Lit Protocol implementation for decentralized authentication.',
+      "Google Summer of Code '26 project: Chainvoice x StablePay. Replaced defunct Lit Protocol with ECIES for secure invoice rendering. Built a DjedVariantRouter in StablePay to support multiple variants via config. Bridged Chainvoice and StablePay for automated on-chain payment settlements using shared invoice IDs, and shipped on-chain merchant analytics.",
     links: [
       {
-        label: 'VouchMe PR #35',
-        url: 'https://github.com/StabilityNexus/VouchMe/pull/35'
-      },
-      {
-        label: 'Chainvoice PR #146',
-        url: 'https://github.com/StabilityNexus/Chainvoice/pull/146'
-      },
-      {
-        label: 'Chainvoice PR #138',
-        url: 'https://github.com/StabilityNexus/Chainvoice/pull/138'
-      },
-      {
-        label: 'Chainvoice Issue #139',
-        url: 'https://github.com/StabilityNexus/Chainvoice/issues/139'
+        label: 'Chainvoice GitHub',
+        url: 'https://github.com/StabilityNexus/Chainvoice'
       }
     ]
   },

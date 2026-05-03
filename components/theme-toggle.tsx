@@ -62,6 +62,8 @@ export function ThemeToggle() {
       size='sm'
       variant='ghost'
       onClick={toggleTheme}
+      aria-label='Toggle theme'
+      title='Toggle theme'
     >
       {resolvedTheme === 'dark' ? (
         <SunIcon className='size-4 text-orange-300' />

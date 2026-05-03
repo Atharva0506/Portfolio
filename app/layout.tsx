@@ -8,6 +8,7 @@ import Providers from '@/components/providers'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { UbuntuPortfolioIntroduction } from '@/components/UbuntuPortfolioIntroduction'
+import { ScrollToTop } from '@/components/scroll-to-top'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
@@ -20,8 +21,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://atharvanaik.me'),
 
   title: {
-    default: 'Atharva Naik | AI Full Stack Developer – LangChain, FastAPI, Next.js',
-    template: '%s | Atharva Naik – AI Developer',
+    default:
+      'Atharva Naik | AI Full Stack Developer – LangChain, FastAPI, Next.js',
+    template: '%s | Atharva Naik – AI Developer'
   },
 
   description:
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     'RAG systems engineer',
     'multi-agent AI developer',
     'Python AI backend developer',
-    'AI developer in India',
+    'AI developer in India'
   ],
 
   authors: [{ name: 'Atharva Naik' }],
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
   publisher: 'Atharva Naik',
 
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.png'
   },
 
   openGraph: {
@@ -61,9 +63,9 @@ export const metadata: Metadata = {
         url: '/images/authors/preview.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Atharva Naik Portfolio',
-      },
-    ],
+        alt: 'Atharva Naik Portfolio'
+      }
+    ]
   },
 
   twitter: {
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
     title: 'Atharva Naik | AI Full Stack Developer',
     description:
       'AI Full Stack Developer building scalable LLM systems and modern web applications.',
-    images: ['/images/authors/preview.jpeg'],
+    images: ['/images/authors/preview.jpeg']
   },
 
   robots: {
@@ -81,19 +83,19 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+      'max-snippet': -1
+    }
   },
 
   alternates: {
-    canonical: 'https://atharvanaik.me',
+    canonical: 'https://atharvanaik.me'
   },
 
   manifest: '/manifest.json',
 
   verification: {
-    google: 'PcdpjtHSzybn4X3M94M79xBzQmcw_2TqqncD154v35I',
-  },
+    google: 'PcdpjtHSzybn4X3M94M79xBzQmcw_2TqqncD154v35I'
+  }
 }
 
 export default function RootLayout({
@@ -115,47 +117,49 @@ export default function RootLayout({
           <main className='grow'>{children}</main>
           <Footer />
           <UbuntuPortfolioIntroduction />
+          <ScrollToTop />
         </Providers>
 
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Atharva Naik",
-              url: "https://atharvanaik.me",
-              image: "https://atharvanaik.me/favicon.png",
-              jobTitle: "AI Full Stack Developer",
-              description: "AI Full Stack Developer building production-ready LLM apps, multi-agent systems, and scalable backends with Python, FastAPI, LangChain, and Next.js.",
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Atharva Naik',
+              url: 'https://atharvanaik.me',
+              image: 'https://atharvanaik.me/favicon.png',
+              jobTitle: 'AI Full Stack Developer',
+              description:
+                'AI Full Stack Developer building production-ready LLM apps, multi-agent systems, and scalable backends with Python, FastAPI, LangChain, and Next.js.',
               knowsAbout: [
-                "Artificial Intelligence",
-                "Large Language Models",
-                "LangChain",
-                "FastAPI",
-                "Next.js",
-                "Python",
-                "RAG Systems",
-                "Multi-Agent AI",
-                "Golang",
-                "Cloud Architecture"
+                'Artificial Intelligence',
+                'Large Language Models',
+                'LangChain',
+                'FastAPI',
+                'Next.js',
+                'Python',
+                'RAG Systems',
+                'Multi-Agent AI',
+                'Golang',
+                'Cloud Architecture'
               ],
               alumniOf: {
-                "@type": "CollegeOrUniversity",
-                name: "Savitribai Phule Pune University"
+                '@type': 'CollegeOrUniversity',
+                name: 'Savitribai Phule Pune University'
               },
               address: {
-                "@type": "PostalAddress",
-                addressLocality: "Pune",
-                addressCountry: "IN"
+                '@type': 'PostalAddress',
+                addressLocality: 'Pune',
+                addressCountry: 'IN'
               },
               sameAs: [
-                "https://github.com/Atharva0506",
-                "https://www.linkedin.com/in/atharva0506",
-                "https://x.com/Atharva_0506",
-                "https://g.dev/Atharva0506"
+                'https://github.com/Atharva0506',
+                'https://www.linkedin.com/in/atharva0506',
+                'https://x.com/Atharva_0506',
+                'https://g.dev/Atharva0506'
               ]
-            }),
+            })
           }}
         />
       </body>

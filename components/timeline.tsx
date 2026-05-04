@@ -12,6 +12,7 @@ import {
   ChevronRight
 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 type AccentColor = 'emerald' | 'amber' | 'violet' | 'blue'
 
@@ -22,7 +23,15 @@ const timelineData = [
     title: "GSoC '26 Developer",
     company: 'AOSSIE / StabilityNexus',
     date: 'May 2026 – Aug 2026',
-    icon: <Code2 className='h-5 w-5 text-[#10B981]' />,
+    icon: (
+      <Image
+        src='https://aossie.org/logo1.png'
+        alt='AOSSIE Logo'
+        width={24}
+        height={24}
+        className='object-contain'
+      />
+    ),
     accent: 'emerald' as AccentColor,
     description:
       "Google Summer of Code '26 project: Chainvoice x StablePay. Replaced defunct Lit Protocol with ECIES for secure invoice rendering. Built a DjedVariantRouter in StablePay to support multiple variants via config. Bridged Chainvoice and StablePay for automated on-chain payment settlements using shared invoice IDs, and shipped on-chain merchant analytics.",
@@ -38,7 +47,15 @@ const timelineData = [
     title: 'Fullstack Engineer — AI Platform',
     company: 'Tata Consultancy Services',
     date: 'May 2025 – Nov 2025',
-    icon: <Building2 className='h-5 w-5 text-[#F59E0B]' />,
+    icon: (
+      <Image
+        src='https://www.tcs.com/content/dam/global-tcs/en/images/home/tcs-logo-1.svg'
+        alt='TCS Logo'
+        width={32}
+        height={12}
+        className='object-contain'
+      />
+    ),
     accent: 'amber' as AccentColor,
     description:
       'Built an internal AI coding assistant used by 300+ engineers. Designed FastAPI backend, React frontend, RAG pipelines, and real-time streaming.'

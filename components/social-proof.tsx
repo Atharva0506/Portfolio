@@ -1,4 +1,5 @@
-import { Building2, Code2, Database } from 'lucide-react'
+import { Code2, Database } from 'lucide-react'
+import Image from 'next/image'
 
 export default function SocialProof() {
   return (
@@ -7,10 +8,27 @@ export default function SocialProof() {
         Trusted By & Contributing To
       </p>
       <div className='flex flex-wrap items-center justify-center gap-x-12 gap-y-8 opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0'>
+        {/* AOSSIE (GSoC) */}
+        <div className='flex items-center gap-2 px-4'>
+          <Image
+            src='https://aossie.org/logo1.png'
+            alt='AOSSIE Logo'
+            width={32}
+            height={32}
+            className='object-contain'
+          />
+          <span className='text-lg font-bold tracking-tight'>AOSSIE</span>
+        </div>
+
         {/* TCS */}
         <div className='flex items-center gap-2 px-4'>
-          <Building2 className='h-6 w-6 text-blue-600' />
-          <span className='text-lg font-bold tracking-tight'>TCS</span>
+          <Image
+            src='https://www.tcs.com/content/dam/global-tcs/en/images/home/tcs-logo-1.svg'
+            alt='TCS Logo'
+            width={60}
+            height={24}
+            className='h-6 w-auto object-contain'
+          />
         </div>
 
         {/* StabilityNexus */}

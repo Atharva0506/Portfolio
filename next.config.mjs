@@ -10,6 +10,14 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'avatars.githubusercontent.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'aossie.org',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.tcs.com',
+            },
         ],
     },
     async redirects() {

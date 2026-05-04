@@ -1,8 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { getProjectBySlug } from '@/lib/projects'
 
-export const runtime = 'edge'
-
 export const alt = 'Atharva Naik - AI Full Stack Developer'
 export const size = {
   width: 1200,

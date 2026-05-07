@@ -1,8 +1,8 @@
-# Atharva Naik Portfolio
+# Atharva Naik — Portfolio
 
-My personal portfolio built with Next.js, TypeScript, and Tailwind CSS.
+Personal portfolio built with Next.js, TypeScript, and Tailwind CSS.
 
-Live site: https://atharvanaik.me/
+🌐 **Live:** [atharvanaik.me](https://atharvanaik.me)
 
 ## Tech Stack
 
@@ -12,48 +12,47 @@ Live site: https://atharvanaik.me/
 - MDX content pipeline
 - Resend (contact form emails)
 
-## Local Development
+## Getting Started
 
-Prerequisites:
-
-- Node.js 24.x
-- pnpm
-
-Install and run:
+**Prerequisites:** Node.js 24.x, pnpm
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Open http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000)
 
 ### Environment Variables
 
-Create a `.env.local` file with:
+Create a `.env.local` file:
 
 ```bash
 RESEND_API_KEY=your_resend_key
 ```
 
-`RESEND_API_KEY` is required for the contact form email flow.
+> `RESEND_API_KEY` is required for the contact form to send emails.
 
 ## Scripts
 
-```bash
-pnpm dev    # Start development server
-pnpm build  # Build for production
-pnpm start  # Start production server
-pnpm lint   # Run ESLint
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build for production |
+| `pnpm start` | Start production server |
+| `pnpm lint` | Run ESLint |
+
+## Content Structure
+
 ```
-
-## Content
-
-- `content/posts`: Blog posts in MDX
-- `content/projects`: Project writeups in MDX
-- `public/images`: Post and project images
+content/
+├── posts/       # Blog posts (MDX)
+└── projects/    # Project writeups (MDX)
+public/
+└── images/      # Post and project images
+```
 
 ## License
 
-- Code: MIT ([LICENSE.md](./LICENSE.md))
-- Content in `content/`: CC BY 4.0
+- **Code:** MIT — see [LICENSE.md](./LICENSE.md)
+- **Content** (`content/`): CC BY 4.0

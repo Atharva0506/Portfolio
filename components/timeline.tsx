@@ -68,7 +68,7 @@ const timelineData = [
     icon: <Bot className='h-5 w-5 text-[#3B82F6]' />,
     accent: 'blue' as AccentColor,
     description:
-      'Built a full-stack AI platform with multi-agent pipelines, RAG, and real-time APIs.'
+      'Built a full-stack AI platform with multi-agent pipelines and RAG, aggregating and processing 500+ articles/day via real-time APIs.'
   },
   {
     id: 5,

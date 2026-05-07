@@ -49,7 +49,7 @@ export default function Intro() {
         <div className='mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground'>
           <span>📍 Pune, India</span>
           <span>🏆 GSoC &apos;26 @ AOSSIE</span>
-          <span>⚡ 4-agent pipelines · 500+ articles/day</span>
+          <span>⚡ News AI : 4-agent pipelines, 100+ articles/day</span>
         </div>
 
         {/* CTA Buttons — premium styling with subtle borders and glow */}

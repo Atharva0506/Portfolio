@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { AlertCircle } from 'lucide-react'
 
@@ -29,9 +30,14 @@ export default function Error({
           An unexpected error occurred. We have been notified.
         </p>
       </div>
-      <Button onClick={() => reset()} variant='default'>
-        Try again
-      </Button>
+      <div className='flex items-center gap-4'>
+        <Button onClick={() => reset()} variant='default'>
+          Try again
+        </Button>
+        <Button asChild variant='outline'>
+          <Link href='/'>Go home</Link>
+        </Button>
+      </div>
     </div>
   )
 }

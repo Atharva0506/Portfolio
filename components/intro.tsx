@@ -17,8 +17,12 @@ export default function Intro() {
   return (
     <section className='flex flex-col-reverse items-start gap-x-10 gap-y-4 pb-24 md:flex-row md:items-center'>
       <div className='mt-2 flex-1 md:mt-0'>
-        <div className='mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 shadow-sm backdrop-blur-md dark:text-green-400'>
-          <span className='relative flex h-2 w-2'>
+        <div
+          className='mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 shadow-sm backdrop-blur-md dark:text-green-400'
+          role='status'
+          aria-label='Status: Open to Work'
+        >
+          <span className='relative flex h-2 w-2' aria-hidden='true'>
             <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75'></span>
             <span className='relative inline-flex h-2 w-2 rounded-full bg-green-500'></span>
           </span>
@@ -71,12 +75,9 @@ export default function Intro() {
             View Resume
           </Link>
 
-          <div className='hidden md:block'>
+          <div className='w-full pt-2 md:w-auto md:pt-0'>
             <BootUbuntuButton />
           </div>
-        </div>
-        <div className='mt-4 md:hidden'>
-          <BootUbuntuButton />
         </div>
       </div>
 

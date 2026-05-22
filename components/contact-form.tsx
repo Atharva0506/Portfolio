@@ -87,16 +87,21 @@ export default function ContactForm() {
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
             {/* Name */}
             <div>
+              <label htmlFor='name' className='sr-only'>
+                Name
+              </label>
               <Input
                 id='name'
                 type='text'
                 placeholder='Name'
                 autoComplete='given-name'
+                aria-invalid={errors.name ? 'true' : 'false'}
+                aria-describedby={errors.name ? 'name-error' : undefined}
                 {...register('name')}
               />
 
               {errors.name?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p id='name-error' className='ml-1 mt-2 text-sm text-rose-400' role='alert'>
                   {errors.name.message}
                 </p>
               )}
@@ -104,16 +109,21 @@ export default function ContactForm() {
 
             {/* Email */}
             <div>
+              <label htmlFor='email' className='sr-only'>
+                Email Address
+              </label>
               <Input
                 type='email'
                 id='email'
                 autoComplete='email'
                 placeholder='Email'
+                aria-invalid={errors.email ? 'true' : 'false'}
+                aria-describedby={errors.email ? 'email-error' : undefined}
                 {...register('email')}
               />
 
               {errors.email?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p id='email-error' className='ml-1 mt-2 text-sm text-rose-400' role='alert'>
                   {errors.email.message}
                 </p>
               )}
@@ -121,14 +131,20 @@ export default function ContactForm() {
 
             {/* Message */}
             <div className='sm:col-span-2'>
+              <label htmlFor='message' className='sr-only'>
+                Message
+              </label>
               <Textarea
+                id='message'
                 rows={4}
                 placeholder='Message'
+                aria-invalid={errors.message ? 'true' : 'false'}
+                aria-describedby={errors.message ? 'message-error' : undefined}
                 {...register('message')}
               />
 
               {errors.message?.message && (
-                <p className='ml-1 mt-2 text-sm text-rose-400'>
+                <p id='message-error' className='ml-1 mt-2 text-sm text-rose-400' role='alert'>
                   {errors.message.message}
                 </p>
               )}

@@ -57,7 +57,7 @@ export default function Footer() {
                 href={item.href}
                 target='_blank'
                 rel='noreferrer noopener'
-                className='text-muted-foreground hover:text-foreground'
+                className='text-muted-foreground transition-colors duration-300 hover:text-foreground'
                 title={`Visit my ${item.name}`}
               >
                 <span className='sr-only'>{item.name}</span>

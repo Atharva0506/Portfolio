@@ -66,7 +66,7 @@ export default function Intro() {
             <span className='relative'>Get in Touch</span>
           </Link>
           <Link
-            href='https://drive.google.com/file/d/1AiKcpCz7bDBYmVkjDBY5dkjZeJWCp_aV/view?usp=sharing'
+            href='https://drive.google.com/file/d/1OBI7Foo9_WNcgNxvxWfus4VZK25O6tRb/view?usp=drivesdk'
             target='_blank'
             rel='noopener noreferrer'
             className='relative inline-flex items-center justify-center rounded-lg border border-zinc-200/80 bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-md hover:shadow-zinc-200/40 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 active:scale-[0.98] dark:border-zinc-700/80 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:border-zinc-600 dark:hover:bg-zinc-900 dark:hover:shadow-zinc-900/40 dark:focus:ring-zinc-600 dark:focus:ring-offset-black'

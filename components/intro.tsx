@@ -1,8 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import authorImage from '@/public/images/authors/atharva.jpg'
 import { BootUbuntuButton } from '@/components/UbuntuPortfolioIntroduction'
 import TypingAnimation from '@/components/typing-animation'
+import HeroTerminal from '@/components/hero-terminal'
 
 const subtitlePhrases = [
   "GSoC '26 @ AOSSIE",
@@ -18,7 +17,7 @@ export default function Intro() {
     <section className='flex flex-col-reverse items-start gap-x-10 gap-y-4 pb-24 md:flex-row md:items-center'>
       <div className='mt-2 flex-1 md:mt-0'>
         <div
-          className='mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 shadow-sm backdrop-blur-md dark:text-green-400'
+          className='mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-700 shadow-sm backdrop-blur-md transition-colors duration-300 hover:border-green-500/50 hover:bg-green-500/20 dark:text-green-400'
           role='status'
           aria-label='Status: Open to Work'
         >
@@ -81,22 +80,13 @@ export default function Intro() {
         </div>
       </div>
 
-      {/* Hero image — elegantly framed hover */}
+      {/* Hero Terminal */}
       <div className='relative mt-12 flex justify-center md:mt-0 md:justify-end'>
-        {/* Soft glow behind the image */}
+        {/* Soft glow behind the terminal */}
         <div className='absolute -inset-4 rounded-full bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-300 opacity-50 blur-2xl transition-opacity duration-500 hover:opacity-75 dark:from-zinc-800 dark:via-zinc-900 dark:to-zinc-800' />
 
-        {/* Glassmorphic border container */}
-        <div className='relative rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/50'>
-          <Image
-            className='rounded-2xl object-cover transition-all duration-500 hover:scale-[1.02] hover:shadow-lg dark:grayscale-[15%] dark:hover:grayscale-0'
-            src={authorImage}
-            alt='Atharva Naik — AI Full Stack Developer specializing in LangChain, FastAPI, and Next.js'
-            width={175}
-            height={175}
-            placeholder='blur'
-            priority
-          />
+        <div className='relative z-10'>
+          <HeroTerminal />
         </div>
       </div>
     </section>

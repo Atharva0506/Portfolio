@@ -154,6 +154,7 @@ export default function ContactForm() {
             <button
               type='submit'
               disabled={isSubmitting}
+              aria-disabled={isSubmitting}
               className='group relative w-full inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-900 px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:shadow-xl hover:shadow-zinc-900/20 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:shadow-zinc-50/10 dark:focus:ring-zinc-100 dark:focus:ring-offset-black disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-md'
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 dark:via-black/10" />

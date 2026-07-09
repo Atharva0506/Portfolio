@@ -28,7 +28,7 @@ export default function Intro() {
           Open to Work — Full-Time &amp; Freelance
         </div>
 
-        <h1 className='title no-underline'>
+        <h1 className='title no-underline bg-gradient-to-r from-zinc-900 to-zinc-500 bg-clip-text text-transparent dark:from-zinc-100 dark:to-zinc-500 animate-fade-up'>
           I Build AI Agents That Handle Money
         </h1>
 

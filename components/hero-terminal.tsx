@@ -183,7 +183,7 @@ export default function HeroTerminal() {
   }, [visibleLines])
 
   return (
-    <div className='group w-full min-w-[260px] max-w-[320px]'>
+    <div className='group w-full min-w-[260px] max-w-[320px] animate-fade-in'>
       {/* ── Terminal Window ── */}
       <div className='overflow-hidden rounded-xl border border-zinc-200/70 bg-zinc-50 shadow-xl transition-all duration-500 group-hover:shadow-2xl dark:border-zinc-800/80 dark:bg-zinc-950'>
         {/* Title bar */}

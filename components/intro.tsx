@@ -49,10 +49,10 @@ export default function Intro() {
           real-time SSE streaming and crypto-native monetization.
         </p>
 
-        <div className='mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground'>
-          <span>📍 Pune, India</span>
-          <span>🏆 GSoC &apos;26 @ AOSSIE</span>
-          <span>⚡ News AI : 4-agent pipelines, 500+ articles/day</span>
+        <div className='mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground'>
+          <span className='flex items-center gap-1.5'>📍 Pune, India</span>
+          <span className='flex items-center gap-1.5'>🏆 GSoC &apos;26 @ AOSSIE</span>
+          <span className='flex items-center gap-1.5'>⚡ News AI : 4-agent pipelines</span>
         </div>
 
         {/* CTA Buttons — premium styling with subtle borders and glow */}

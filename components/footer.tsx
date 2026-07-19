@@ -50,21 +50,22 @@ export default function Footer() {
     <footer className='py-8'>
       <div className='container max-w-3xl'>
         <div className='md:flex md:items-center md:justify-between'>
-          <div className='flex justify-center space-x-6 md:order-2'>
+          <ul className='flex justify-center space-x-6 md:order-2' role='list'>
             {navigation.map(item => (
-              <a
-                key={item.name}
-                href={item.href}
-                target='_blank'
-                rel='noreferrer noopener'
-                className='text-muted-foreground transition-all duration-300 hover:text-foreground hover:scale-110 active:scale-95'
-                title={`Visit my ${item.name}`}
-              >
-                <span className='sr-only'>{item.name}</span>
-                <item.icon aria-hidden='true' className='h-5 w-5' />
-              </a>
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  target='_blank'
+                  rel='noreferrer noopener'
+                  className='block text-muted-foreground transition-all duration-300 hover:text-foreground hover:scale-110 active:scale-95'
+                  title={`Visit my ${item.name}`}
+                >
+                  <span className='sr-only'>{item.name}</span>
+                  <item.icon aria-hidden='true' className='h-5 w-5' />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className='mt-8 md:order-1 md:mt-0'>
             <p className='text-center text-xs leading-5 text-muted-foreground'>
               &copy; {new Date().getFullYear()} Atharva Naik. All rights

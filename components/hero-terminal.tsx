@@ -189,7 +189,7 @@ export default function HeroTerminal() {
         {/* Title bar */}
         <div className='flex items-center gap-2 border-b border-zinc-200/60 bg-zinc-100/80 px-4 py-2.5 dark:border-zinc-800/60 dark:bg-zinc-900/80'>
           {/* Traffic-light dots */}
-          <div className='flex items-center gap-1.5'>
+          <div className='flex items-center gap-1.5' aria-hidden='true'>
             <span className='h-2.5 w-2.5 rounded-full bg-red-400/80 dark:bg-red-500/70' />
             <span className='h-2.5 w-2.5 rounded-full bg-yellow-400/80 dark:bg-yellow-500/70' />
             <span className='h-2.5 w-2.5 rounded-full bg-green-400/80 dark:bg-green-500/70' />

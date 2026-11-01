@@ -115,8 +115,8 @@ importers:
         specifier: ^8.57.0
         version: 8.57.0(supports-color@7.2.0)
       eslint-config-next:
-        specifier: 15.5.22
-        version: 15.5.22(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5)
+        specifier: 15.5.28
+        version: 15.5.28(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -429,8 +429,8 @@ packages:
   '@next/env@14.2.5':
     resolution: {integrity: sha512-/zZGkrTOsraVfYjGP8uM0p6r0BDT6xWpkjdVbcz66PJVSpwXX3yNiRycxAuDfBKGWBrZBXRuK/YVlkNgxHGwmA==}
 
-  '@next/eslint-plugin-next@15.5.22':
-    resolution: {integrity: sha512-SB8PGBmpAiVmOtMOIfObnI2VA3MN3jUGg0iYTh4MO2efxQIV/IL0U8iYOok/8DldCEKARyCOJJix+Vvgzaic/Q==}
+  '@next/eslint-plugin-next@15.5.28':
+    resolution: {integrity: sha512-EsR/G+skBFfu8Z35P6V/yuu4IV8zkZXIssGOgIRD0ZXqB4CTEuEHQC1ySOQi31u4xjmgHVAdG1RT3QAasRmcZA==}
 
   '@next/swc-darwin-arm64@14.2.5':
     resolution: {integrity: sha512-/9zVxJ+K9lrzSGli1///ujyRfon/ZneeZ+v4ptpiPoOU+GKZnm8Wj8ELWU1Pm7GHltYRBklmXMTUqM/DqQ99FQ==}
@@ -1727,8 +1727,8 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-config-next@15.5.22:
-    resolution: {integrity: sha512-HhZsB3dvBsYwQpnymZm/Ps9NVaSYiSzDSXkR02CjyOcQutCuea3cF7NxE8i8Drs2+Dgw95WUzK2CMBIHd5YbMw==}
+  eslint-config-next@15.5.28:
+    resolution: {integrity: sha512-FQkDceHNJVfMa2rKbBQKyVILq7nG/zd2TxKsjecJAIv/dOcqaZynK5shwQCt6qrZFFae/EukOFggSP0jtNSLAA==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0 || ^9.0.0
       typescript: '>=3.3.1'
@@ -3825,7 +3825,7 @@ snapshots:
 
   '@next/env@14.2.5': {}
 
-  '@next/eslint-plugin-next@15.5.22':
+  '@next/eslint-plugin-next@15.5.28':
     dependencies:
       fast-glob: 3.3.1
 
@@ -5140,9 +5140,9 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-config-next@15.5.22(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5):
+  eslint-config-next@15.5.28(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5):
     dependencies:
-      '@next/eslint-plugin-next': 15.5.22
+      '@next/eslint-plugin-next': 15.5.28
       '@rushstack/eslint-patch': 1.16.1
       '@typescript-eslint/eslint-plugin': 8.65.0(@typescript-eslint/parser@8.65.0(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5))(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 8.65.0(eslint@8.57.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.4.5)
